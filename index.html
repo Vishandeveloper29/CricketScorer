@@ -3,46 +3,44 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gully Cricket Ultra — HTML Edition</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Gully Cricket 26</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;900&family=DM+Mono:wght@400;500&family=Inter:wght@400;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
     rel="stylesheet">
   <style>
     :root {
-      --bg: #05070d;
-      --bg2: #0a0f1d;
-      --panel: #0e1728;
-      --panel2: #121d31;
-      --glass: rgba(255, 255, 255, .055);
-      --glass2: rgba(255, 255, 255, .085);
-      --line: rgba(255, 255, 255, .10);
-      --line2: rgba(255, 255, 255, .18);
-      --text: #eef5ff;
-      --muted: #91a0b8;
-      --dim: #5b6880;
-      --lime: #c9ff38;
-      --limeSoft: rgba(201, 255, 56, .13);
-      --cyan: #4bdcff;
-      --cyanSoft: rgba(75, 220, 255, .12);
-      --orange: #ff9b3d;
-      --orangeSoft: rgba(255, 155, 61, .13);
-      --red: #ff4d6d;
-      --redSoft: rgba(255, 77, 109, .13);
-      --green: #00e19d;
-      --greenSoft: rgba(0, 225, 157, .13);
-      --purple: #9b72ff;
-      --purpleSoft: rgba(155, 114, 255, .13);
-      --gold: #ffd166;
-      --goldSoft: rgba(255, 209, 102, .15);
-      --r: 24px;
-      --r2: 16px;
-      --shadow: 0 30px 90px rgba(0, 0, 0, .45);
+      --bg: #080c14;
+      --bg2: #0d1220;
+      --panel: #111827;
+      --panel2: #161e2e;
+      --glass: rgba(255, 255, 255, .06);
+      --glass2: rgba(255, 255, 255, .10);
+      --line: rgba(255, 255, 255, .09);
+      --line2: rgba(255, 255, 255, .16);
+      --text: #e8f0ff;
+      --muted: #8a9ab8;
+      --dim: #4a5568;
+      --lime: #b8ff00;
+      --limeSoft: rgba(184, 255, 0, .12);
+      --cyan: #00d4ff;
+      --cyanSoft: rgba(0, 212, 255, .10);
+      --orange: #ff8c00;
+      --orangeSoft: rgba(255, 140, 0, .12);
+      --red: #ff3d5a;
+      --redSoft: rgba(255, 61, 90, .12);
+      --green: #00e5a0;
+      --greenSoft: rgba(0, 229, 160, .12);
+      --purple: #a78bfa;
+      --purpleSoft: rgba(167, 139, 250, .12);
+      --gold: #ffcc44;
+      --goldSoft: rgba(255, 204, 68, .13);
+      --r: 20px;
+      --r2: 14px;
       --display: "Bebas Neue", Impact, sans-serif;
-      --body: "Inter", "DM Sans", system-ui, sans-serif;
-      --mono: "DM Mono", monospace;
+      --body: "Inter", system-ui, sans-serif;
+      --mono: "JetBrains Mono", monospace;
     }
 
     * {
@@ -52,7 +50,6 @@
     }
 
     html {
-      scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased
     }
 
@@ -61,7 +58,8 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--body);
-      overflow-x: hidden
+      overflow-x: hidden;
+      font-size: 14px
     }
 
     button,
@@ -79,20 +77,20 @@
 
     ::selection {
       background: var(--lime);
-      color: #07100b
+      color: #020801
     }
 
     ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px
+      width: 4px;
+      height: 4px
     }
 
     ::-webkit-scrollbar-track {
-      background: #07101e
+      background: transparent
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(201, 255, 56, .55);
+      background: rgba(184, 255, 0, .4);
       border-radius: 999px
     }
 
@@ -100,147 +98,139 @@
       position: fixed;
       inset: 0;
       z-index: -3;
-      background: radial-gradient(circle at 50% -20%, rgba(201, 255, 56, .16), transparent 35%), radial-gradient(circle at 10% 20%, rgba(75, 220, 255, .10), transparent 30%), radial-gradient(circle at 90% 10%, rgba(155, 114, 255, .10), transparent 26%), linear-gradient(180deg, #05070d, #07101f 50%, #03050a)
+      background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(184, 255, 0, .10), transparent), radial-gradient(ellipse 60% 40% at 15% 30%, rgba(0, 212, 255, .07), transparent), radial-gradient(ellipse 50% 35% at 88% 20%, rgba(167, 139, 250, .07), transparent), linear-gradient(180deg, #080c14 0%, #0a0f1c 50%, #060810 100%)
     }
 
-    .stadium-bg:before {
+    .stadium-bg::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: radial-gradient(ellipse at top, black 20%, transparent 80%)
+      background-image: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)
     }
 
-    .stadium-bg:after {
+    .stadium-bg::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(110deg, transparent 0 38%, rgba(255, 255, 255, .045) 40%, transparent 43% 100%);
-      animation: lightSweep 7s linear infinite;
-      opacity: .55
+      background: linear-gradient(105deg, transparent 0 40%, rgba(255, 255, 255, .03) 42%, transparent 45%);
+      animation: sweep 8s linear infinite;
+      pointer-events: none
     }
 
-    @keyframes lightSweep {
-      0% {
-        transform: translateX(-70%)
+    @keyframes sweep {
+      from {
+        transform: translateX(-100%)
       }
 
-      100% {
-        transform: translateX(70%)
+      to {
+        transform: translateX(100%)
       }
     }
 
-    .noise {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      opacity: .035;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E")
-    }
-
-    .app-shell {
-      width: min(1280px, 100%);
+    .app {
+      width: min(1320px, 100%);
       margin: 0 auto;
-      padding: 18px
+      padding: 14px
     }
 
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      margin-bottom: 16px;
-      padding: 14px;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding: 12px 16px;
       border: 1px solid var(--line);
-      background: rgba(5, 7, 13, .68);
-      backdrop-filter: blur(18px);
-      border-radius: 26px;
+      background: rgba(8, 12, 20, .80);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
       position: sticky;
-      top: 10px;
+      top: 8px;
       z-index: 50;
-      box-shadow: 0 16px 55px rgba(0, 0, 0, .25)
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .4)
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      min-width: 0
+      gap: 12px
     }
 
     .logo {
-      width: 52px;
-      height: 52px;
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
       display: grid;
       place-items: center;
-      border-radius: 17px;
-      background: linear-gradient(135deg, var(--lime), #78ff9a);
-      color: #06100b;
+      background: linear-gradient(135deg, var(--lime), #78ff38);
+      color: #040c02;
       font-family: var(--display);
-      font-size: 34px;
-      box-shadow: 0 0 0 1px rgba(201, 255, 56, .35), 0 14px 45px rgba(201, 255, 56, .13);
-      flex: 0 0 auto
+      font-size: 30px;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 1px rgba(184, 255, 0, .3)
     }
 
-    .brand h1 {
+    .brand-text h1 {
       font-family: var(--display);
-      letter-spacing: .06em;
-      font-size: 28px;
-      line-height: .9;
-      white-space: nowrap
+      font-size: 26px;
+      letter-spacing: .05em;
+      line-height: 1
     }
 
-    .brand p {
+    .brand-text p {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--lime);
-      letter-spacing: .18em;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      margin-top: 4px;
-      white-space: nowrap
+      margin-top: 2px
     }
 
-    .status-pill {
+    .livepill {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       border: 1px solid var(--line);
       background: var(--glass);
       border-radius: 999px;
-      padding: 9px 13px;
+      padding: 8px 12px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
       letter-spacing: .08em;
-      text-transform: uppercase;
-      white-space: nowrap
+      text-transform: uppercase
     }
 
-    .live-dot {
-      width: 8px;
-      height: 8px;
+    .dot {
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--lime);
-      box-shadow: 0 0 0 rgba(201, 255, 56, .7);
       animation: pulse 1.4s ease infinite
     }
 
     @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(184, 255, 0, .7)
+      }
+
       70% {
-        box-shadow: 0 0 0 10px rgba(201, 255, 56, 0)
+        box-shadow: 0 0 0 8px rgba(184, 255, 0, 0)
       }
     }
 
     .screen {
-      animation: fadeUp .3s ease both
+      animation: fadeUp .28s ease both
     }
 
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(12px)
+        transform: translateY(10px)
       }
 
       to {
@@ -250,82 +240,139 @@
     }
 
     .hero {
-      min-height: calc(100vh - 120px);
+      min-height: calc(100vh - 100px);
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 36px 0
+      padding: 30px 0
     }
 
     .hero-card {
       width: min(960px, 100%);
-      position: relative;
       border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .025));
-      border-radius: 36px;
-      padding: 58px 24px;
-      box-shadow: var(--shadow);
-      overflow: hidden
+      background: linear-gradient(150deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .025));
+      border-radius: 32px;
+      padding: 60px 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .5)
     }
 
-    .hero-card:before {
+    .hero-card::before {
       content: "";
       position: absolute;
-      inset: -2px;
-      background: radial-gradient(circle at 50% 0, rgba(201, 255, 56, .17), transparent 35%), radial-gradient(circle at 80% 30%, rgba(75, 220, 255, .13), transparent 30%);
+      inset: -1px;
+      background: radial-gradient(circle at 50% 0, rgba(184, 255, 0, .15), transparent 40%), radial-gradient(circle at 85% 35%, rgba(0, 212, 255, .10), transparent 35%);
       z-index: -1
     }
 
-    .eyebrow {
+    .badge {
       font-family: var(--mono);
-      font-size: 12px;
-      letter-spacing: .22em;
+      font-size: 11px;
+      letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--lime);
-      font-weight: 500;
-      margin-bottom: 12px
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(184, 255, 0, .3);
+      background: rgba(184, 255, 0, .08);
+      border-radius: 999px;
+      padding: 6px 14px
+    }
+
+    .badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--lime)
     }
 
     .hero-title {
       font-family: var(--display);
-      font-size: clamp(70px, 13vw, 160px);
-      line-height: .83;
-      letter-spacing: .045em;
+      font-size: clamp(72px, 13vw, 170px);
+      line-height: .82;
+      letter-spacing: .04em;
       text-transform: uppercase;
-      text-shadow: 0 20px 70px rgba(0, 0, 0, .55)
+      text-shadow: 0 0 60px rgba(184, 255, 0, .15)
     }
 
-    .hero-title span {
-      color: var(--lime)
+    .hero-title em {
+      color: var(--lime);
+      font-style: normal
     }
 
     .hero-sub {
-      max-width: 720px;
+      max-width: 680px;
       margin: 18px auto 0;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.75
     }
 
     .hero-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 28px
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      margin-top: 36px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, .2);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .hs {
+      flex: 1;
+      padding: 14px;
+      border-right: 1px solid var(--line);
+      text-align: center
+    }
+
+    .hs:last-child {
+      border-right: 0
+    }
+
+    .hs .k {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--dim);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 5px
+    }
+
+    .hs .v {
+      font-family: var(--display);
+      font-size: 28px;
+      color: var(--lime)
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
-      border-radius: 15px;
-      padding: 13px 18px;
-      font-weight: 900;
+      gap: 8px;
+      border-radius: 13px;
+      padding: 12px 18px;
+      font-weight: 800;
       letter-spacing: .01em;
-      transition: .18s ease;
-      min-height: 46px
+      transition: .16s ease;
+      min-height: 44px;
+      font-size: 13px
     }
 
     .btn:hover {
@@ -333,13 +380,13 @@
     }
 
     .btn:active {
-      transform: scale(.98)
+      transform: scale(.97)
     }
 
     .btn.primary {
-      background: linear-gradient(135deg, var(--lime), #9dff66);
-      color: #06100b;
-      box-shadow: 0 16px 55px rgba(201, 255, 56, .16)
+      background: linear-gradient(135deg, var(--lime), #8aff20);
+      color: #030a01;
+      box-shadow: 0 12px 40px rgba(184, 255, 0, .15)
     }
 
     .btn.secondary {
@@ -350,44 +397,68 @@
 
     .btn.red {
       background: var(--redSoft);
-      border: 1px solid rgba(255, 77, 109, .28);
+      border: 1px solid rgba(255, 61, 90, .25);
       color: var(--red)
-    }
-
-    .btn.orange {
-      background: var(--orangeSoft);
-      border: 1px solid rgba(255, 155, 61, .28);
-      color: var(--orange)
     }
 
     .btn.green {
       background: var(--greenSoft);
-      border: 1px solid rgba(0, 225, 157, .28);
+      border: 1px solid rgba(0, 229, 160, .25);
       color: var(--green)
     }
 
     .btn.cyan {
       background: var(--cyanSoft);
-      border: 1px solid rgba(75, 220, 255, .28);
+      border: 1px solid rgba(0, 212, 255, .25);
       color: var(--cyan)
     }
 
-    .btn.small {
-      padding: 8px 11px;
-      min-height: 34px;
-      border-radius: 11px;
-      font-size: 12px
+    .btn.orange {
+      background: var(--orangeSoft);
+      border: 1px solid rgba(255, 140, 0, .25);
+      color: var(--orange)
     }
 
     .btn.full {
       width: 100%
     }
 
+    .btn.sm {
+      padding: 7px 12px;
+      min-height: 32px;
+      border-radius: 10px;
+      font-size: 11px
+    }
+
     .btn:disabled {
-      opacity: .45;
+      opacity: .4;
       cursor: not-allowed;
-      transform: none;
-      filter: grayscale(.4)
+      transform: none
+    }
+
+    .step-kicker {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--lime);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 6px
+    }
+
+    .step-title {
+      font-family: var(--display);
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: .88;
+      letter-spacing: .03em;
+      text-transform: uppercase
+    }
+
+    .step-sub {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      margin-top: 8px;
+      max-width: 640px
     }
 
     .step-head {
@@ -395,49 +466,24 @@
       align-items: flex-end;
       justify-content: space-between;
       gap: 14px;
-      margin: 22px 0 16px
-    }
-
-    .step-kicker {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--lime);
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      margin-bottom: 6px
-    }
-
-    .step-title {
-      font-family: var(--display);
-      font-size: clamp(44px, 7vw, 82px);
-      line-height: .88;
-      letter-spacing: .035em;
-      text-transform: uppercase
-    }
-
-    .step-sub {
-      color: var(--muted);
-      max-width: 660px;
-      line-height: 1.65;
-      margin-top: 10px
+      margin: 20px 0 16px
     }
 
     .glass {
       border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .028));
+      background: linear-gradient(150deg, rgba(255, 255, 255, .065), rgba(255, 255, 255, .025));
       border-radius: var(--r);
-      box-shadow: 0 20px 70px rgba(0, 0, 0, .24);
-      backdrop-filter: blur(18px);
+      backdrop-filter: blur(12px);
       overflow: hidden
     }
 
     .panel {
-      padding: 18px
+      padding: 16px
     }
 
     .grid {
       display: grid;
-      gap: 14px
+      gap: 12px
     }
 
     .grid.two {
@@ -454,16 +500,16 @@
 
     .field {
       display: grid;
-      gap: 7px
+      gap: 6px
     }
 
     .label {
       font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: .17em;
+      font-size: 9px;
+      letter-spacing: .16em;
       text-transform: uppercase;
       color: var(--dim);
-      font-weight: 500
+      font-weight: 600
     }
 
     input,
@@ -471,37 +517,37 @@
     textarea {
       width: 100%;
       border: 1px solid var(--line);
-      background: rgba(6, 10, 18, .72);
-      border-radius: 14px;
-      padding: 12px 13px;
+      background: rgba(5, 8, 16, .75);
+      border-radius: 12px;
+      padding: 10px 12px;
       outline: none;
       color: var(--text);
-      transition: .15s ease
+      transition: .14s ease
     }
 
     textarea {
-      min-height: 128px;
+      min-height: 120px;
       resize: vertical;
-      line-height: 1.55
+      line-height: 1.5
     }
 
     input:focus,
     select:focus,
     textarea:focus {
-      border-color: rgba(201, 255, 56, .55);
-      box-shadow: 0 0 0 4px rgba(201, 255, 56, .07)
+      border-color: rgba(184, 255, 0, .5);
+      box-shadow: 0 0 0 3px rgba(184, 255, 0, .06)
     }
 
     .hint {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--dim);
       line-height: 1.5
     }
 
     .setup-layout {
       display: grid;
-      grid-template-columns: .86fr 1.14fr;
-      gap: 14px
+      grid-template-columns: .85fr 1.15fr;
+      gap: 12px
     }
 
     .mini-title {
@@ -513,49 +559,44 @@
     }
 
     .mini-title h3 {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 900
     }
 
     .mini-title span {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--dim);
       letter-spacing: .12em;
       text-transform: uppercase
     }
 
-    .team-preview {
-      display: grid;
-      gap: 10px;
-      margin-top: 12px
-    }
-
     .team-card {
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
-      border-radius: 18px;
-      padding: 14px
+      border-radius: 16px;
+      padding: 13px;
+      margin-top: 10px
     }
 
     .team-card h4 {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
-      font-size: 15px;
+      gap: 8px;
+      font-size: 14px;
       margin-bottom: 8px
     }
 
-    .captain-badge {
+    .cap-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 3px 8px;
+      gap: 4px;
+      padding: 2px 8px;
       border-radius: 999px;
       background: var(--goldSoft);
-      border: 1px solid rgba(255, 209, 102, .25);
+      border: 1px solid rgba(255, 204, 68, .22);
       color: var(--gold);
-      font-size: 10px;
+      font-size: 9px;
       font-family: var(--mono);
       text-transform: uppercase;
       letter-spacing: .08em
@@ -563,80 +604,79 @@
 
     .chips {
       display: flex;
-      gap: 7px;
+      gap: 6px;
       flex-wrap: wrap
     }
 
     .chip {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
+      background: rgba(255, 255, 255, .04);
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 5px 10px;
+      font-size: 11px;
       color: var(--muted)
     }
 
-    .chip.captain {
-      border-color: rgba(255, 209, 102, .3);
+    .chip.cap {
+      border-color: rgba(255, 204, 68, .28);
       color: var(--gold);
       background: var(--goldSoft)
     }
 
-    .toss-stage {
+    .toss-layout {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 14px;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 12px;
       align-items: stretch
     }
 
     .coin-wrap {
       display: grid;
       place-items: center;
-      min-height: 430px;
+      min-height: 420px;
       position: relative;
-      overflow: hidden;
-      background: radial-gradient(circle at center, rgba(201, 255, 56, .14), transparent 47%), rgba(255, 255, 255, .035)
+      background: radial-gradient(circle at center, rgba(184, 255, 0, .12), transparent 50%), rgba(255, 255, 255, .03);
+      overflow: hidden
     }
 
     .coin {
-      width: 220px;
-      height: 220px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: linear-gradient(145deg, #f9ff8a, #c9ff38 38%, #72d650);
-      color: #07100b;
+      background: conic-gradient(from 0deg, #d4ff00, #b8ff00 30%, #8fff38 60%, #b8ff00 80%, #d4ff00);
+      color: #030a01;
       font-family: var(--display);
-      font-size: 86px;
-      letter-spacing: .04em;
-      box-shadow: inset 0 -18px 35px rgba(0, 0, 0, .18), inset 0 12px 25px rgba(255, 255, 255, .45), 0 35px 90px rgba(201, 255, 56, .20);
-      border: 8px solid rgba(255, 255, 255, .30);
-      position: relative;
-      transform-style: preserve-3d
+      font-size: 80px;
+      letter-spacing: .03em;
+      box-shadow: inset 0 -16px 30px rgba(0, 0, 0, .15), inset 0 10px 20px rgba(255, 255, 255, .4), 0 0 0 8px rgba(184, 255, 0, .15);
+      border: 7px solid rgba(255, 255, 255, .28);
+      position: relative
     }
 
-    .coin:before {
+    .coin::before {
       content: "";
       position: absolute;
-      inset: 18px;
-      border: 2px dashed rgba(6, 16, 11, .28);
+      inset: 16px;
+      border: 2px dashed rgba(3, 10, 1, .22);
       border-radius: 50%
     }
 
-    .coin.flipping {
-      animation: coinSpin .17s linear infinite
+    .coin.flip {
+      animation: coinFlip .15s linear infinite
     }
 
-    @keyframes coinSpin {
+    @keyframes coinFlip {
       0% {
         transform: rotateY(0) translateY(0)
       }
 
       50% {
-        transform: rotateY(180deg) translateY(-18px)
+        transform: rotateY(180deg) translateY(-16px)
       }
 
       100% {
@@ -646,7 +686,7 @@
 
     .toss-info {
       display: grid;
-      gap: 12px
+      gap: 11px
     }
 
     .versus {
@@ -656,141 +696,159 @@
       align-items: center
     }
 
-    .captain-card {
+    .cap-card {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
-      border-radius: 20px;
-      padding: 16px;
-      min-width: 0
+      background: rgba(255, 255, 255, .04);
+      border-radius: 18px;
+      padding: 14px
     }
 
-    .captain-card .side {
+    .cap-card .side {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--dim);
       letter-spacing: .16em;
       text-transform: uppercase
     }
 
-    .captain-card .name {
-      font-size: 20px;
+    .cap-card .name {
+      font-size: 18px;
       font-weight: 900;
-      margin-top: 5px;
-      white-space: nowrap;
+      margin-top: 4px;
       overflow: hidden;
-      text-overflow: ellipsis
+      text-overflow: ellipsis;
+      white-space: nowrap
     }
 
-    .captain-card .cap {
+    .cap-card .tm {
       color: var(--gold);
-      font-size: 12px;
-      margin-top: 4px;
+      font-size: 11px;
+      margin-top: 3px;
       font-weight: 800
     }
 
-    .vs {
+    .vs-txt {
       font-family: var(--display);
-      font-size: 42px;
+      font-size: 38px;
       color: var(--lime)
     }
 
     .toss-result {
-      border: 1px solid rgba(201, 255, 56, .25);
-      background: linear-gradient(135deg, rgba(201, 255, 56, .13), rgba(75, 220, 255, .08));
-      border-radius: 22px;
-      padding: 18px;
+      border: 1px solid rgba(184, 255, 0, .22);
+      background: linear-gradient(135deg, rgba(184, 255, 0, .10), rgba(0, 212, 255, .07));
+      border-radius: 20px;
+      padding: 16px;
       display: grid;
-      gap: 10px;
-      box-shadow: 0 16px 55px rgba(201, 255, 56, .07)
+      gap: 10px
     }
 
     .result-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px
+      gap: 8px
     }
 
     .result-tile {
       border: 1px solid var(--line);
-      background: rgba(0, 0, 0, .16);
-      border-radius: 15px;
-      padding: 12px
+      background: rgba(0, 0, 0, .18);
+      border-radius: 13px;
+      padding: 11px
     }
 
     .result-tile .k {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       color: var(--dim);
-      letter-spacing: .14em;
+      letter-spacing: .13em;
       text-transform: uppercase;
-      margin-bottom: 4px
+      margin-bottom: 3px
     }
 
     .result-tile .v {
-      font-size: 15px;
-      font-weight: 900;
-      color: var(--text)
+      font-size: 14px;
+      font-weight: 900
+    }
+
+    .target-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    .tgt {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .04);
+      border-radius: 12px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .tgt strong {
+      color: var(--text);
+      font-size: 14px;
+      margin-left: 5px
     }
 
     .openers-layout {
       display: grid;
       grid-template-columns: 1.1fr .9fr;
-      gap: 14px
+      gap: 12px
     }
 
     .lineup-list {
       display: grid;
-      gap: 8px;
-      max-height: 460px;
+      gap: 7px;
+      max-height: 440px;
       overflow: auto;
-      padding-right: 3px
+      padding-right: 2px
     }
 
     .player-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
-      border-radius: 15px;
-      padding: 11px 12px
+      border-radius: 13px;
+      padding: 10px 11px
     }
 
     .player-row strong {
-      font-size: 14px
+      font-size: 13px
     }
 
     .player-row span {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--dim);
       text-transform: uppercase;
-      letter-spacing: .1em
+      letter-spacing: .09em
     }
 
     .scoreboard {
       position: relative;
       overflow: hidden;
-      border-radius: 30px;
+      border-radius: 26px;
       border: 1px solid var(--line);
-      background: linear-gradient(145deg, #07101d, #0c1729 58%, #07101d);
-      box-shadow: var(--shadow);
-      margin-bottom: 14px
+      background: linear-gradient(145deg, #08101e, #0c1828 55%, #080e1c);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+      margin-bottom: 12px
     }
 
-    .scoreboard:before {
+    .scoreboard::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse at top, black 25%, transparent 80%)
+      background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%)
     }
 
     .scorebar {
-      height: 5px;
-      background: linear-gradient(90deg, var(--lime), var(--cyan), var(--purple), var(--orange));
+      height: 4px;
+      background: linear-gradient(90deg, var(--lime), var(--cyan), var(--purple), var(--orange), var(--red));
       position: relative;
       z-index: 1
     }
@@ -798,38 +856,38 @@
     .score-inner {
       position: relative;
       z-index: 1;
-      padding: 22px
+      padding: 20px
     }
 
     .score-top {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       align-items: flex-start;
       flex-wrap: wrap;
-      margin-bottom: 12px
+      margin-bottom: 10px
     }
 
     .match-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(201, 255, 56, .24);
-      background: var(--limeSoft);
+      gap: 7px;
+      border: 1px solid rgba(184, 255, 0, .22);
+      background: rgba(184, 255, 0, .09);
       color: var(--lime);
       border-radius: 999px;
-      padding: 7px 12px;
+      padding: 6px 12px;
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       letter-spacing: .12em;
       text-transform: uppercase
     }
 
-    .venue {
+    .venue-txt {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--dim);
-      letter-spacing: .10em;
+      letter-spacing: .09em;
       text-align: right;
       text-transform: uppercase
     }
@@ -837,14 +895,14 @@
     .score-main {
       display: flex;
       align-items: flex-end;
-      gap: 20px;
+      gap: 18px;
       flex-wrap: wrap;
-      margin: 8px 0 16px
+      margin: 6px 0 14px
     }
 
     .runs {
       font-family: var(--display);
-      font-size: clamp(76px, 13vw, 138px);
+      font-size: clamp(72px, 12vw, 140px);
       line-height: .82;
       letter-spacing: .03em
     }
@@ -854,71 +912,49 @@
     }
 
     .score-meta {
-      padding-bottom: 8px;
+      padding-bottom: 6px;
       display: grid;
-      gap: 6px
+      gap: 5px
     }
 
     .score-meta h2 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900
     }
 
     .score-meta p {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
       letter-spacing: .07em;
       text-transform: uppercase
     }
 
-    .target-banner {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 14px
-    }
-
-    .target-item {
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
-      border-radius: 14px;
-      padding: 9px 12px;
-      font-size: 12px;
-      color: var(--muted)
-    }
-
-    .target-item strong {
-      color: var(--text);
-      font-size: 15px;
-      margin-left: 6px
-    }
-
     .stat-row {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
-      gap: 9px
+      gap: 8px
     }
 
     .stat {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
-      border-radius: 16px;
-      padding: 12px
+      background: rgba(255, 255, 255, .04);
+      border-radius: 14px;
+      padding: 11px
     }
 
     .stat .k {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       color: var(--dim);
-      letter-spacing: .15em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      margin-bottom: 6px
+      margin-bottom: 5px
     }
 
     .stat .v {
       font-family: var(--display);
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1
     }
 
@@ -944,328 +980,335 @@
 
     .main-layout {
       display: grid;
-      grid-template-columns: 1.32fr .68fr;
-      gap: 14px
+      grid-template-columns: 1.35fr .65fr;
+      gap: 12px
     }
 
     .stack {
       display: grid;
-      gap: 14px
+      gap: 12px
     }
 
     .section-title {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 13px
+      gap: 8px;
+      margin-bottom: 12px
     }
 
     .section-title h3 {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900
     }
 
     .section-title p {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 9px;
       color: var(--dim);
       letter-spacing: .12em;
       text-transform: uppercase
     }
 
+    .tabs {
+      display: flex;
+      gap: 6px;
+      background: rgba(0, 0, 0, .2);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 5px;
+      margin-bottom: 12px
+    }
+
+    .tab {
+      flex: 1;
+      min-width: 80px;
+      padding: 9px 11px;
+      border-radius: 13px;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12px
+    }
+
+    .tab.active {
+      background: var(--lime);
+      color: #030a01
+    }
+
     .batters {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px
+      gap: 9px
     }
 
     .batter {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
-      border-radius: 19px;
-      padding: 14px;
+      background: rgba(255, 255, 255, .04);
+      border-radius: 17px;
+      padding: 13px;
       position: relative;
       overflow: hidden
     }
 
     .batter.strike {
-      border-color: rgba(201, 255, 56, .42);
-      background: linear-gradient(135deg, rgba(201, 255, 56, .12), rgba(255, 255, 255, .035))
+      border-color: rgba(184, 255, 0, .4);
+      background: linear-gradient(135deg, rgba(184, 255, 0, .10), rgba(255, 255, 255, .03))
     }
 
-    .batter.strike:after {
+    .batter.strike::after {
       content: "ON STRIKE";
       position: absolute;
       right: 10px;
       top: 10px;
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       color: var(--lime);
-      letter-spacing: .12em
+      letter-spacing: .11em
     }
 
     .role {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       color: var(--dim);
       letter-spacing: .15em;
       text-transform: uppercase;
-      margin-bottom: 6px
+      margin-bottom: 5px
     }
 
     .b-name {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 900;
-      padding-right: 82px;
-      white-space: nowrap;
+      padding-right: 78px;
       overflow: hidden;
-      text-overflow: ellipsis
+      text-overflow: ellipsis;
+      white-space: nowrap
     }
 
     .b-score {
       font-family: var(--display);
-      font-size: 42px;
+      font-size: 40px;
       line-height: 1;
-      margin-top: 8px
+      margin-top: 7px
     }
 
     .b-score small {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted)
     }
 
     .b-detail {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
-      margin-top: 5px
+      margin-top: 4px
     }
 
     .bowler-card {
-      border: 1px solid rgba(75, 220, 255, .24);
-      background: linear-gradient(135deg, rgba(75, 220, 255, .10), rgba(255, 255, 255, .035));
-      border-radius: 19px;
-      padding: 14px
+      border: 1px solid rgba(0, 212, 255, .22);
+      background: linear-gradient(135deg, rgba(0, 212, 255, .09), rgba(255, 255, 255, .03));
+      border-radius: 17px;
+      padding: 13px
     }
 
     .bowler-top {
       display: flex;
       justify-content: space-between;
-      gap: 10px
+      gap: 8px
     }
 
     .bowler-name {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 900
     }
 
-    .bowler-numbers {
+    .bowler-nums {
       display: flex;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
-      margin-top: 10px
+      margin-top: 9px
     }
 
-    .bowler-numbers span {
+    .bowler-nums span {
       border: 1px solid var(--line);
-      background: rgba(0, 0, 0, .16);
-      padding: 7px 9px;
-      border-radius: 12px;
-      font-size: 12px;
+      background: rgba(0, 0, 0, .15);
+      padding: 6px 9px;
+      border-radius: 10px;
+      font-size: 11px;
       color: var(--muted)
     }
 
-    .bowler-numbers strong {
+    .bowler-nums strong {
       color: var(--text)
-    }
-
-    .tabs {
-      display: flex;
-      gap: 7px;
-      overflow: auto;
-      background: rgba(0, 0, 0, .18);
-      border: 1px solid var(--line);
-      border-radius: 19px;
-      padding: 6px;
-      margin-bottom: 14px
-    }
-
-    .tab {
-      flex: 1;
-      min-width: 92px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: transparent;
-      color: var(--muted);
-      font-weight: 900
-    }
-
-    .tab.active {
-      background: var(--lime);
-      color: #06100b
     }
 
     .run-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 9px
+      gap: 8px
     }
 
     .run-btn {
-      min-height: 72px;
-      border-radius: 19px;
+      min-height: 68px;
+      border-radius: 17px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .05);
       display: grid;
       place-items: center;
       font-family: var(--display);
-      font-size: 34px;
-      transition: .15s ease;
+      font-size: 32px;
+      transition: .13s ease;
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      color: var(--text)
     }
 
     .run-btn small {
       display: block;
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--dim);
-      margin-top: -8px
+      margin-top: -7px
     }
 
     .run-btn:hover {
       transform: translateY(-2px);
       border-color: var(--line2);
-      background: rgba(255, 255, 255, .08)
+      background: rgba(255, 255, 255, .09)
     }
 
     .run-btn.four {
       color: var(--cyan);
       background: var(--cyanSoft);
-      border-color: rgba(75, 220, 255, .28)
+      border-color: rgba(0, 212, 255, .26)
     }
 
     .run-btn.six {
       color: var(--green);
       background: var(--greenSoft);
-      border-color: rgba(0, 225, 157, .28)
+      border-color: rgba(0, 229, 160, .26)
     }
 
     .run-btn.wicket {
       color: var(--red);
       background: var(--redSoft);
-      border-color: rgba(255, 77, 109, .28);
-      font-size: 25px
+      border-color: rgba(255, 61, 90, .26);
+      font-size: 24px
     }
 
     .run-btn.extra {
       color: var(--orange);
       background: var(--orangeSoft);
-      border-color: rgba(255, 155, 61, .25);
-      font-size: 25px
+      border-color: rgba(255, 140, 0, .23);
+      font-size: 23px
     }
 
     .extras-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 10px
+      gap: 7px;
+      margin-top: 9px
     }
 
     .extra-btn {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
-      border-radius: 14px;
-      padding: 11px 9px;
-      font-weight: 900;
-      color: var(--orange)
+      background: rgba(255, 255, 255, .04);
+      border-radius: 12px;
+      padding: 10px 8px;
+      font-weight: 800;
+      color: var(--orange);
+      font-size: 12px
+    }
+
+    .extra-btn:hover {
+      background: var(--orangeSoft)
     }
 
     .over-box {
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
-      border-radius: 19px;
-      padding: 14px
+      border-radius: 17px;
+      padding: 13px
     }
 
     .ball-row {
       display: flex;
-      gap: 7px;
+      gap: 6px;
       flex-wrap: wrap
     }
 
     .ball {
-      width: 38px;
-      height: 38px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .05);
       font-family: var(--display);
-      font-size: 15px;
+      font-size: 14px;
       color: var(--muted)
     }
 
     .ball.four {
       background: var(--cyanSoft);
-      border-color: rgba(75, 220, 255, .32);
+      border-color: rgba(0, 212, 255, .3);
       color: var(--cyan)
     }
 
     .ball.six {
       background: var(--greenSoft);
-      border-color: rgba(0, 225, 157, .32);
+      border-color: rgba(0, 229, 160, .3);
       color: var(--green)
     }
 
     .ball.wicket {
       background: var(--redSoft);
-      border-color: rgba(255, 77, 109, .32);
+      border-color: rgba(255, 61, 90, .3);
       color: var(--red)
     }
 
     .ball.extra {
       background: var(--orangeSoft);
-      border-color: rgba(255, 155, 61, .32);
+      border-color: rgba(255, 140, 0, .3);
       color: var(--orange)
     }
 
     .ball.dot {
       color: var(--dim);
-      background: rgba(255, 255, 255, .025)
+      background: rgba(255, 255, 255, .02)
     }
 
     .commentary {
       display: grid;
-      gap: 8px;
-      max-height: 350px;
+      gap: 7px;
+      max-height: 320px;
       overflow: auto
     }
 
     .comm {
       display: grid;
-      grid-template-columns: 42px 1fr;
-      gap: 10px;
+      grid-template-columns: 40px 1fr;
+      gap: 9px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
-      border-radius: 15px;
-      padding: 10px
+      border-radius: 13px;
+      padding: 9px
     }
 
     .comm .tag {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background: var(--limeSoft);
       color: var(--lime);
-      font-family: var(--display)
+      font-family: var(--display);
+      font-size: 13px
     }
 
     .comm p {
@@ -1281,31 +1324,31 @@
     .table-wrap {
       overflow: auto;
       border: 1px solid var(--line);
-      border-radius: 18px
+      border-radius: 16px
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 680px;
-      background: rgba(0, 0, 0, .12)
+      min-width: 640px;
+      background: rgba(0, 0, 0, .10)
     }
 
     th {
-      padding: 12px 13px;
+      padding: 11px 12px;
       text-align: left;
       font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: .16em;
+      font-size: 8px;
+      letter-spacing: .15em;
       text-transform: uppercase;
       color: var(--dim);
       border-bottom: 1px solid var(--line)
     }
 
     td {
-      padding: 12px 13px;
-      border-bottom: 1px solid rgba(255, 255, 255, .055);
-      font-size: 13px;
+      padding: 11px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, .05);
+      font-size: 12px;
       color: var(--muted);
       font-weight: 600
     }
@@ -1336,65 +1379,66 @@
     .records {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 10px
+      gap: 9px
     }
 
     .record {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, .045);
-      border-radius: 18px;
-      padding: 14px
+      background: rgba(255, 255, 255, .04);
+      border-radius: 16px;
+      padding: 13px
     }
 
     .record .k {
       font-family: var(--mono);
-      font-size: 9px;
+      font-size: 8px;
       color: var(--dim);
-      letter-spacing: .15em;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      margin-bottom: 7px
+      margin-bottom: 6px
     }
 
     .record .v {
       font-family: var(--display);
-      font-size: 32px;
+      font-size: 30px;
       line-height: 1
     }
 
     .record .who {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--muted);
       font-weight: 800;
-      margin-top: 4px
+      margin-top: 3px
     }
 
     .summary-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
     }
 
-    .summary-card {
+    .sum-card {
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
-      border-radius: 19px;
-      padding: 15px
+      border-radius: 17px;
+      padding: 14px
     }
 
-    .summary-card h4 {
-      font-size: 16px;
-      margin-bottom: 10px
+    .sum-card h4 {
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 900
     }
 
-    .summary-card p {
+    .sum-card p {
       color: var(--muted);
       line-height: 1.65;
-      font-size: 13px
+      font-size: 12px
     }
 
     .fall-list {
       display: flex;
-      gap: 7px;
+      gap: 6px;
       flex-wrap: wrap
     }
 
@@ -1402,60 +1446,60 @@
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, .04);
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 5px 10px;
+      font-size: 11px;
       color: var(--muted)
     }
 
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(2, 4, 9, .78);
-      backdrop-filter: blur(12px);
+      background: rgba(2, 4, 10, .80);
+      backdrop-filter: blur(14px);
       z-index: 100;
       display: grid;
       place-items: center;
-      padding: 18px;
-      animation: fadeUp .2s ease both
+      padding: 16px;
+      animation: fadeUp .18s ease both
     }
 
     .modal {
-      width: min(560px, 100%);
+      width: min(540px, 100%);
       border: 1px solid var(--line2);
-      background: linear-gradient(145deg, #0c1424, #070d18);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden
+      background: linear-gradient(145deg, #0b1325, #060c18);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .6)
     }
 
     .modal-head {
-      padding: 18px;
+      padding: 16px;
       border-bottom: 1px solid var(--line);
       background: rgba(255, 255, 255, .04)
     }
 
     .modal-title {
       font-family: var(--display);
-      font-size: 40px;
+      font-size: 38px;
       line-height: .95;
       letter-spacing: .04em
     }
 
     .modal-sub {
       color: var(--muted);
-      font-size: 13px;
-      margin-top: 6px
+      font-size: 12px;
+      margin-top: 5px
     }
 
     .modal-body {
-      padding: 18px;
+      padding: 16px;
       display: grid;
-      gap: 13px
+      gap: 12px
     }
 
     .modal-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap
     }
 
@@ -1474,33 +1518,33 @@
 
     .fx-card {
       text-align: center;
-      animation: fxPop .7s cubic-bezier(.34, 1.56, .64, 1) both
+      animation: fxPop .65s cubic-bezier(.34, 1.56, .64, 1) both
     }
 
     .fx-title {
       font-family: var(--display);
-      font-size: clamp(76px, 15vw, 180px);
+      font-size: clamp(80px, 16vw, 190px);
       line-height: .85;
-      letter-spacing: .06em
+      letter-spacing: .05em
     }
 
     .fx-sub {
       font-family: var(--mono);
-      font-size: 15px;
-      letter-spacing: .24em;
+      font-size: 14px;
+      letter-spacing: .22em;
       text-transform: uppercase;
-      margin-top: 10px
+      margin-top: 8px
     }
 
     @keyframes fxPop {
       0% {
         opacity: 0;
-        transform: scale(.15) rotate(-8deg)
+        transform: scale(.1) rotate(-6deg)
       }
 
       55% {
         opacity: 1;
-        transform: scale(1.08)
+        transform: scale(1.06)
       }
 
       100% {
@@ -1509,79 +1553,82 @@
       }
     }
 
+    .break-hero {
+      min-height: calc(100vh - 100px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px 0
+    }
+
     .break-card,
     .end-card {
-      width: min(920px, 100%);
+      width: min(880px, 100%);
       text-align: center;
       border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .035));
-      border-radius: 34px;
-      padding: 38px 22px;
-      box-shadow: var(--shadow)
+      background: linear-gradient(145deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .03));
+      border-radius: 30px;
+      padding: 42px 22px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, .5)
     }
 
     .break-title,
     .end-title {
       font-family: var(--display);
-      font-size: clamp(60px, 11vw, 132px);
+      font-size: clamp(58px, 11vw, 130px);
       line-height: .82;
       letter-spacing: .05em
     }
 
-    .break-title span,
-    .end-title span {
-      color: var(--lime)
+    .break-title em,
+    .end-title em {
+      color: var(--lime);
+      font-style: normal
     }
 
     .break-sub,
     .end-sub {
       color: var(--muted);
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.6;
-      max-width: 720px;
-      margin: 16px auto
+      max-width: 680px;
+      margin: 14px auto
     }
 
     .mega-score {
       font-family: var(--display);
-      font-size: clamp(70px, 12vw, 130px);
+      font-size: clamp(66px, 11vw, 126px);
       line-height: .85;
-      margin: 18px 0;
-      color: var(--text)
-    }
-
-    .locked {
-      opacity: .6;
-      filter: saturate(.65)
+      margin: 16px 0
     }
 
     .empty {
       border: 1px dashed var(--line2);
-      border-radius: 18px;
-      padding: 28px;
+      border-radius: 16px;
+      padding: 26px;
       text-align: center;
       color: var(--dim);
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       letter-spacing: .13em;
       text-transform: uppercase
     }
 
     .danger-zone {
       display: flex;
-      gap: 8px;
+      gap: 7px;
       flex-wrap: wrap;
-      margin-top: 10px
+      margin-top: 9px
     }
 
-    .mobile-bottom-space {
-      height: 20px
+    .mobile-space {
+      height: 18px
     }
 
-    @media(max-width:980px) {
+    @media(max-width:960px) {
 
       .setup-layout,
-      .toss-stage,
+      .toss-layout,
       .openers-layout,
       .main-layout {
         grid-template-columns: 1fr
@@ -1596,13 +1643,13 @@
       }
 
       .coin-wrap {
-        min-height: 300px
+        min-height: 280px
       }
 
       .coin {
-        width: 160px;
-        height: 160px;
-        font-size: 66px
+        width: 150px;
+        height: 150px;
+        font-size: 60px
       }
 
       .result-grid {
@@ -1610,39 +1657,35 @@
       }
     }
 
-    @media(max-width:680px) {
-      .app-shell {
-        padding: 10px
+    @media(max-width:640px) {
+      .app {
+        padding: 8px
       }
 
       .topbar {
-        top: 6px;
-        border-radius: 20px;
-        padding: 10px
+        top: 5px;
+        border-radius: 18px;
+        padding: 9px 12px
       }
 
       .logo {
-        width: 43px;
-        height: 43px;
-        font-size: 28px;
-        border-radius: 14px
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+        border-radius: 12px
       }
 
-      .brand h1 {
-        font-size: 22px
+      .brand-text h1 {
+        font-size: 20px
       }
 
-      .brand p {
-        font-size: 8px
-      }
-
-      .status-pill {
+      .livepill {
         display: none
       }
 
       .hero-card {
-        padding: 38px 14px;
-        border-radius: 28px
+        padding: 36px 14px;
+        border-radius: 26px
       }
 
       .grid.two,
@@ -1653,33 +1696,12 @@
         grid-template-columns: 1fr
       }
 
-      .step-head {
-        align-items: flex-start;
-        flex-direction: column
-      }
-
-      .panel {
-        padding: 14px
-      }
-
-      .score-inner {
-        padding: 16px
-      }
-
-      .runs {
-        font-size: 76px
-      }
-
       .stat-row {
         grid-template-columns: repeat(2, 1fr)
       }
 
       .run-grid {
         grid-template-columns: repeat(3, 1fr)
-      }
-
-      .run-btn {
-        min-height: 64px
       }
 
       .extras-grid {
@@ -1694,11 +1716,8 @@
         grid-template-columns: 1fr
       }
 
-      .vs {
-        text-align: center
-      }
-
-      .captain-card {
+      .vs-txt,
+      .cap-card {
         text-align: center
       }
 
@@ -1706,26 +1725,21 @@
         grid-template-columns: 1fr
       }
 
-      .modal-actions .btn {
-        width: 100%
+      .panel {
+        padding: 12px
       }
 
-      .target-banner {
-        display: grid;
-        grid-template-columns: 1fr 1fr
+      .score-inner {
+        padding: 14px
       }
 
-      .target-item {
-        font-size: 11px
+      .runs {
+        font-size: 72px
       }
 
-      .ball {
-        width: 34px;
-        height: 34px
-      }
-
-      .venue {
-        text-align: left
+      .step-head {
+        flex-direction: column;
+        align-items: flex-start
       }
     }
   </style>
@@ -1733,17 +1747,16 @@
 
 <body>
   <div class="stadium-bg"></div>
-  <div class="noise"></div>
-  <div class="app-shell">
+  <div class="app">
     <header class="topbar">
       <div class="brand">
         <div class="logo">G</div>
-        <div>
-          <h1>Gully Cricket Ultra</h1>
+        <div class="brand-text">
+          <h1>Gully Cricket 26</h1>
           <p>Arena Scoring System</p>
         </div>
       </div>
-      <div class="status-pill"><span class="live-dot"></span><span id="topStatus">Ready</span></div>
+      <div class="livepill"><span class="dot"></span><span id="topStatus">Ready</span></div>
     </header>
     <main id="app"></main>
   </div>
@@ -1754,7 +1767,7 @@
     </div>
   </div>
   <script>
-    const KEY = 'gully-cricket-ultra-html-v11';
+    const KEY = 'gully26-v1';
     const $ = id => document.getElementById(id);
     const esc = v => String(v ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
     const uid = () => Date.now() + Math.random().toString(16).slice(2);
@@ -1781,48 +1794,45 @@
     function newBatter(name) { return { name, runs: 0, balls: 0, fours: 0, sixes: 0, dots: 0, out: false, status: 'Yet to bat', dismissal: '', fielder: '', bowler: '' } }
     function newBowler(name) { return { name, balls: 0, runs: 0, wickets: 0, dots: 0, wides: 0, noballs: 0, maidens: 0 } }
     function makeInnings(num, bat, bowl, target = 0) {
-      const batters = S.teams[bat].players.slice();
-      const bowlers = S.teams[bowl].players.slice();
+      const batters = S.teams[bat].players.slice(), bowlers = S.teams[bowl].players.slice();
       const batStats = {}; batters.forEach(n => batStats[n] = newBatter(n));
       const bowlStats = {}; bowlers.forEach(n => bowlStats[n] = newBowler(n));
-      return { number: num, batting: bat, bowling: bowl, target, runs: 0, wickets: 0, legalBalls: 0, extras: { total: 0, wides: 0, noballs: 0, byes: 0, legbyes: 0 }, batters, bowlers, batStats, bowlStats, striker: '', nonStriker: '', bowler: '', balls: [], fall: [], completed: false, resultText: '' }
+      return {
+        number: num, batting: bat, bowling: bowl, target, runs: 0, wickets: 0, legalBalls: 0,
+        extras: { total: 0, wides: 0, noballs: 0, byes: 0, legbyes: 0 }, batters, bowlers, batStats, bowlStats,
+        striker: '', nonStriker: '', bowler: '', balls: [], fall: [], completed: false, resultText: ''
+      }
     }
     function inn() { return S.innings[S.currentInnings] }
     function scoreLine(i = inn()) { return `${i.runs}/${i.wickets}` }
     function currentScore() { const i = inn(); return i ? { runs: i.runs, wickets: i.wickets, overs: oversText(i.legalBalls), rr: rate(i.runs, i.legalBalls).toFixed(2) } : { runs: 0, wickets: 0, overs: '0.0', rr: '0.00' } }
-    function requiredInfo(i = inn()) {
-      if (!i || !i.target) return null;
-      const need = Math.max(i.target - i.runs, 0);
-      const left = Math.max(Number(S.setup.overs) * 6 - i.legalBalls, 0);
-      return { need, left, rrr: left ? Number((need / (left / 6)).toFixed(2)) : need ? Infinity : 0 };
-    }
+    function requiredInfo(i = inn()) { if (!i || !i.target) return null; const need = Math.max(i.target - i.runs, 0), left = Math.max(Number(S.setup.overs) * 6 - i.legalBalls, 0); return { need, left, rrr: left ? Number((need / (left / 6)).toFixed(2)) : need ? Infinity : 0 } }
     function availableBatters(i = inn()) { return i.batters.filter(n => !i.batStats[n].out && n !== i.striker && n !== i.nonStriker) }
     function swapStrike(i = inn()) { const t = i.striker; i.striker = i.nonStriker; i.nonStriker = t }
-    function ballClass(b) { if (b.wicket) return 'wicket'; if (b.type === 'WD' || b.type === 'NB' || b.type === 'B' || b.type === 'LB') return 'extra'; if (b.batRuns === 4) return 'four'; if (b.batRuns === 6) return 'six'; if (b.total === 0) return 'dot'; return '' }
+    function ballClass(b) { if (b.wicket) return 'wicket'; if (['WD', 'NB', 'B', 'LB'].includes(b.type)) return 'extra'; if (b.batRuns === 4) return 'four'; if (b.batRuns === 6) return 'six'; if (b.total === 0) return 'dot'; return '' }
     function ballLabel(b) { if (b.wicket) return 'W'; if (b.type === 'WD') return 'Wd'; if (b.type === 'NB') return 'Nb'; if (b.type === 'B') return `B${b.extras}`; if (b.type === 'LB') return `Lb${b.extras}`; return String(b.batRuns) }
-    function commentaryText(i, b) {
-      if (b.wicket) { return `<strong>WICKET!</strong> ${esc(b.outBatter)} is out — ${esc(b.dismissalText)}. ${esc(teamName(i.batting))} are ${i.runs}/${i.wickets}.` }
-      if (b.batRuns === 6) return `<strong>SIX!</strong> ${esc(b.striker)} launches it clean. Maximum.`;
-      if (b.batRuns === 4) return `<strong>FOUR!</strong> ${esc(b.striker)} finds the boundary with perfect timing.`;
-      if (b.type === 'WD') return `<strong>Wide ball.</strong> Extra run added, ball will be replayed.`;
-      if (b.type === 'NB') return `<strong>No ball.</strong> Extra run added, ball will be replayed.`;
-      if (b.type === 'B') return `<strong>Bye runs.</strong> ${b.extras} added to extras.`;
-      if (b.type === 'LB') return `<strong>Leg bye.</strong> ${b.extras} added to extras.`;
-      if (b.batRuns === 0) return `<strong>Dot ball.</strong> Tight delivery from ${esc(b.bowler)}.`;
+    function commText(i, b) {
+      if (b.wicket) return `<strong>WICKET!</strong> ${esc(b.outBatter)} is out — ${esc(b.dismissalText)}. ${esc(teamName(i.batting))} ${i.runs}/${i.wickets}.`;
+      if (b.batRuns === 6) return `<strong>SIX!</strong> ${esc(b.striker)} sends it over the rope. Maximum!`;
+      if (b.batRuns === 4) return `<strong>FOUR!</strong> ${esc(b.striker)} finds the boundary.`;
+      if (b.type === 'WD') return `<strong>Wide.</strong> Extra run added, ball replayed.`;
+      if (b.type === 'NB') return `<strong>No ball.</strong> Extra run added, ball replayed.`;
+      if (b.type === 'B') return `<strong>Bye.</strong> ${b.extras} run(s) added.`;
+      if (b.type === 'LB') return `<strong>Leg bye.</strong> ${b.extras} run(s) added.`;
+      if (b.batRuns === 0) return `<strong>Dot.</strong> Tight delivery from ${esc(b.bowler)}.`;
       if (b.batRuns === 1) return `<strong>Single.</strong> Strike rotated by ${esc(b.striker)}.`;
-      return `<strong>${b.batRuns} runs.</strong> Good running between the wickets.`;
+      return `<strong>${b.batRuns} runs.</strong> Good running.`
     }
     function showFx(kind, sub) {
       const fx = $('fx'), t = $('fxTitle'), s = $('fxSub');
-      const map = { SIX: ['SIX!', 'var(--green)', 'rgba(0,225,157,.12)'], FOUR: ['FOUR!', 'var(--cyan)', 'rgba(75,220,255,.12)'], WICKET: ['OUT!', 'var(--red)', 'rgba(255,77,109,.12)'], WIDE: ['WIDE', 'var(--orange)', 'rgba(255,155,61,.12)'], NO: ['NO BALL', 'var(--orange)', 'rgba(255,155,61,.12)'], DOT: ['DOT', 'var(--muted)', 'rgba(255,255,255,.08)'], TARGET: ['TARGET!', 'var(--lime)', 'rgba(201,255,56,.14)'] };
-      const m = map[kind] || [kind, 'var(--lime)', 'rgba(201,255,56,.10)'];
-      t.textContent = m[0]; t.style.color = m[1]; s.textContent = sub || ''; s.style.color = m[1]; fx.style.background = m[2]; fx.classList.add('show');
-      clearTimeout(showFx.t); showFx.t = setTimeout(() => fx.classList.remove('show'), 950);
+      const map = { SIX: ['SIX!', 'var(--green)', 'rgba(0,229,160,.10)'], FOUR: ['FOUR!', 'var(--cyan)', 'rgba(0,212,255,.10)'], WICKET: ['OUT!', 'var(--red)', 'rgba(255,61,90,.10)'], WIDE: ['WIDE', 'var(--orange)', 'rgba(255,140,0,.10)'], NO: ['NO BALL', 'var(--orange)', 'rgba(255,140,0,.10)'], DOT: ['DOT', 'var(--muted)', 'rgba(255,255,255,.06)'], TARGET: ['TARGET!', 'var(--lime)', 'rgba(184,255,0,.12)'] };
+      const m = map[kind] || [kind, 'var(--lime)', 'rgba(184,255,0,.08)'];
+      t.textContent = m[0]; t.style.color = m[1]; s.textContent = sub || ''; s.style.color = m[1]; fx.style.background = m[2];
+      fx.classList.add('show'); clearTimeout(showFx.t); showFx.t = setTimeout(() => fx.classList.remove('show'), 900)
     }
     const App = {
       start() { S.phase = 'setup'; save(); render() },
-      resetAll() { if (confirm('Start a completely new match?')) { S = defaultState(); save(); render() } },
-      quickDemo() { S = defaultState(); S.phase = 'setup'; save(); render() },
+      resetAll() { if (confirm('Start a new match?')) { S = defaultState(); save(); render() } },
       readSetup() {
         S.setup.matchName = $('matchName')?.value.trim() || S.setup.matchName;
         S.setup.venue = $('venue')?.value.trim() || S.setup.venue;
@@ -1836,7 +1846,7 @@
         S.teams.A.players = parseNames($('teamAPlayers')?.value || '');
         S.teams.B.players = parseNames($('teamBPlayers')?.value || '');
         if (!S.setup.captainA) S.setup.captainA = S.teams.A.players[0] || 'Captain A';
-        if (!S.setup.captainB) S.setup.captainB = S.teams.B.players[0] || 'Captain B';
+        if (!S.setup.captainB) S.setup.captainB = S.teams.B.players[0] || 'Captain B'
       },
       autoDraft() {
         const pool = parseNames($('playerPool')?.value || defaultPool.join('\n'));
@@ -1845,19 +1855,19 @@
         $('teamAPlayers').value = a.join('\n'); $('teamBPlayers').value = b.join('\n');
         if (!$('captainA').value.trim()) $('captainA').value = a[0] || '';
         if (!$('captainB').value.trim()) $('captainB').value = b[0] || '';
-        App.readSetup(); save(); render();
+        App.readSetup(); save(); render()
       },
       lockSetup() {
         App.readSetup();
         if (S.teams.A.players.length < 2 || S.teams.B.players.length < 2) { alert('Both teams need at least 2 players.'); return }
         if (!S.teams.A.players.includes(S.setup.captainA)) S.teams.A.players.unshift(S.setup.captainA);
         if (!S.teams.B.players.includes(S.setup.captainB)) S.teams.B.players.unshift(S.setup.captainB);
-        S.phase = 'toss'; S.toss = { done: false, flipping: false, caller: '', call: '', coinResult: '', winner: '', decision: '', batFirst: '', bowlFirst: '' }; S.innings = []; S.currentInnings = 0; S.commentary = []; setNotice('Toss'); save(); render();
+        S.phase = 'toss'; S.toss = { done: false, flipping: false, caller: '', call: '', coinResult: '', winner: '', decision: '', batFirst: '', bowlFirst: '' };
+        S.innings = []; S.currentInnings = 0; S.commentary = []; setNotice('Toss'); save(); render()
       },
       autoToss() {
         if (S.toss.flipping) return;
-        const caller = Math.random() > .5 ? 'A' : 'B';
-        const call = Math.random() > .5 ? 'Heads' : 'Tails';
+        const caller = Math.random() > .5 ? 'A' : 'B', call = Math.random() > .5 ? 'Heads' : 'Tails';
         S.toss = { done: false, flipping: true, caller, call, coinResult: '', winner: '', decision: '', batFirst: '', bowlFirst: '' };
         setNotice('Coin flipping'); save(); render();
         setTimeout(() => {
@@ -1867,181 +1877,210 @@
           const batFirst = decision === 'Bat' ? winner : other(winner);
           const bowlFirst = other(batFirst);
           S.toss = { ...S.toss, done: true, flipping: false, coinResult: result, winner, decision, batFirst, bowlFirst };
-          showFx('TARGET', `${teamName(winner)} won the toss`); setNotice('Toss result'); save(); render();
-        }, 1500);
+          showFx('TARGET', `${teamName(winner)} won the toss`); setNotice('Toss result'); save(); render()
+        }, 1500)
       },
       goOpeners() {
         if (!S.toss.done) return;
         if (!S.innings.length) { S.innings = [makeInnings(1, S.toss.batFirst, S.toss.bowlFirst, 0)]; S.currentInnings = 0 }
-        S.phase = 'openers'; setNotice('Select openers'); save(); render();
+        S.phase = 'openers'; setNotice('Select openers'); save(); render()
       },
       startInnings() {
         const i = inn();
         const st = $('strikerSelect').value, ns = $('nonStrikerSelect').value, bw = $('bowlerSelect').value;
-        if (!st || !ns || !bw || st === ns) { alert('Select different striker and non-striker, plus one bowler.'); return }
+        if (!st || !ns || !bw || st === ns) { alert('Select different striker/non-striker and a bowler.'); return }
         i.striker = st; i.nonStriker = ns; i.bowler = bw;
         i.batStats[st].status = 'Batting'; i.batStats[ns].status = 'Batting';
-        S.phase = 'live'; S.tab = 'scoring'; setNotice(`Innings ${i.number} live`); save(); render();
+        S.phase = 'live'; S.tab = 'scoring'; setNotice(`Innings ${i.number} live`); save(); render()
       },
       setTab(t) { S.tab = t; save(); render() },
       addRun(r) { App.addDelivery({ batRuns: r, type: '', extras: 0, legal: true, wicket: false }) },
       addExtra(type, extraRuns) { App.addDelivery({ batRuns: 0, type, extras: extraRuns, legal: !(type === 'WD' || type === 'NB'), wicket: false }) },
       openWicket() { S.modal = { type: 'wicket' }; save(); render() },
       confirmWicket() {
-        const dismissal = $('dismissalType').value;
-        const outBatter = $('outBatter').value;
-        const fielder = $('fielderName').value.trim();
-        const next = $('nextBatter').value;
-        const runs = Math.max(0, Number($('wicketRuns').value || 0));
+        const dismissal = $('dismissalType').value, outBatter = $('outBatter').value,
+          fielder = $('fielderName').value.trim(), next = $('nextBatter').value,
+          runs = Math.max(0, Number($('wicketRuns').value || 0));
         if (!outBatter) { alert('Select dismissed batter.'); return }
         const needsNext = (inn().wickets + 1) < maxWickets(inn());
         if (needsNext && !next) { alert('Select next batter.'); return }
-        S.modal = null;
-        App.addDelivery({ batRuns: runs, type: '', extras: 0, legal: true, wicket: true, wicketData: { dismissal, outBatter, fielder, next } });
+        S.modal = null; App.addDelivery({ batRuns: runs, type: '', extras: 0, legal: true, wicket: true, wicketData: { dismissal, outBatter, fielder, next } })
       },
       closeModal() { S.modal = null; save(); render() },
       addDelivery(d) {
         const i = inn(); if (!i || S.phase !== 'live') return;
-        if (!i.striker || !i.nonStriker || !i.bowler) { alert('Select striker, non-striker and bowler.'); return }
-        const beforeOver = Math.floor(i.legalBalls / 6);
-        const strikerBefore = i.striker, nonStrikerBefore = i.nonStriker, bowlerBefore = i.bowler;
+        if (!i.striker || !i.nonStriker || !i.bowler) { alert('Need striker, non-striker and bowler.'); return }
+        const beforeOver = Math.floor(i.legalBalls / 6), st = i.striker, ns = i.nonStriker, bw = i.bowler;
         const total = (d.batRuns || 0) + (d.extras || 0);
-        const b = { id: uid(), over: beforeOver, ballInOver: (i.legalBalls % 6) + 1, striker: strikerBefore, nonStriker: nonStrikerBefore, bowler: bowlerBefore, batRuns: d.batRuns || 0, extras: d.extras || 0, total, type: d.type || '', legal: d.legal, wicket: !!d.wicket, outBatter: '', dismissal: '', fielder: '', dismissalText: '' };
+        const b = {
+          id: uid(), over: beforeOver, ballInOver: (i.legalBalls % 6) + 1, striker: st, nonStriker: ns, bowler: bw,
+          batRuns: d.batRuns || 0, extras: d.extras || 0, total, type: d.type || '', legal: d.legal, wicket: !!d.wicket,
+          outBatter: '', dismissal: '', fielder: '', dismissalText: ''
+        };
         i.runs += total;
-        const bat = i.batStats[strikerBefore];
+        const bat = i.batStats[st];
         if (bat) { bat.status = 'Batting'; if (d.legal) { bat.balls++; if (total === 0) bat.dots++ } bat.runs += b.batRuns; if (b.batRuns === 4) bat.fours++; if (b.batRuns === 6) bat.sixes++ }
-        if (i.batStats[nonStrikerBefore]) i.batStats[nonStrikerBefore].status = 'Batting';
-        const bw = i.bowlStats[bowlerBefore] || newBowler(bowlerBefore); i.bowlStats[bowlerBefore] = bw;
-        bw.runs += total; if (d.legal) bw.balls++; if (total === 0 && d.legal) bw.dots++; if (d.type === 'WD') bw.wides++; if (d.type === 'NB') bw.noballs++;
-        if (d.type) { i.extras.total += d.extras || 0; if (d.type === 'WD') i.extras.wides += d.extras || 0; if (d.type === 'NB') i.extras.noballs += d.extras || 0; if (d.type === 'B') i.extras.byes += d.extras || 0; if (d.type === 'LB') i.extras.legbyes += d.extras || 0 }
+        if (i.batStats[ns]) i.batStats[ns].status = 'Batting';
+        const bow = i.bowlStats[bw] || newBowler(bw); i.bowlStats[bw] = bow;
+        bow.runs += total; if (d.legal) bow.balls++; if (total === 0 && d.legal) bow.dots++;
+        if (d.type === 'WD') bow.wides++; if (d.type === 'NB') bow.noballs++;
+        if (d.type) {
+          i.extras.total += d.extras || 0; if (d.type === 'WD') i.extras.wides += d.extras || 0;
+          if (d.type === 'NB') i.extras.noballs += d.extras || 0; if (d.type === 'B') i.extras.byes += d.extras || 0;
+          if (d.type === 'LB') i.extras.legbyes += d.extras || 0
+        }
         if (d.legal) i.legalBalls++;
         if (d.wicket) {
-          const w = d.wicketData || {}; b.outBatter = w.outBatter || strikerBefore; b.dismissal = w.dismissal || 'Bowled'; b.fielder = w.fielder || ''; b.dismissalText = b.dismissal + (b.fielder ? ` by ${b.fielder}` : '');
-          const out = i.batStats[b.outBatter]; if (out) { out.out = true; out.status = 'Out'; out.dismissal = b.dismissal; out.fielder = b.fielder; out.bowler = bowlerBefore }
+          const w = d.wicketData || {}; b.outBatter = w.outBatter || st; b.dismissal = w.dismissal || 'Bowled';
+          b.fielder = w.fielder || ''; b.dismissalText = b.dismissal + (b.fielder ? ` by ${b.fielder}` : '');
+          const out = i.batStats[b.outBatter];
+          if (out) { out.out = true; out.status = 'Out'; out.dismissal = b.dismissal; out.fielder = b.fielder; out.bowler = bw }
           i.wickets++;
           const bowlerGets = !['Run Out', 'Retired Hurt', 'Obstructing'].includes(b.dismissal);
-          if (bowlerGets) bw.wickets++;
-          i.fall.push({ score: i.runs, wicket: i.wickets, batter: b.outBatter, over: oversText(i.legalBalls) });
+          if (bowlerGets) bow.wickets++;
+          i.fall.push({ score: i.runs, wicket: i.wickets, batter: b.outBatter, over: oversText(i.legalBalls) })
         }
         i.balls.push(b);
-        S.commentary.unshift({ id: uid(), label: ballLabel(b), html: commentaryText(i, b) }); S.commentary = S.commentary.slice(0, 80);
+        S.commentary.unshift({ id: uid(), label: ballLabel(b), html: commText(i, b) }); S.commentary = S.commentary.slice(0, 80);
         if (d.wicket) {
           if (d.legal && (d.batRuns || 0) % 2 === 1) swapStrike(i);
           const next = d.wicketData?.next || '';
           if (i.wickets < maxWickets(i) && next) {
             if (b.outBatter === i.striker) i.striker = next; else if (b.outBatter === i.nonStriker) i.nonStriker = next;
-            i.batStats[next].status = 'Batting';
+            i.batStats[next].status = 'Batting'
           }
-        } else {
-          const swapRuns = (d.type === 'B' || d.type === 'LB') ? d.extras : d.batRuns;
-          if (d.legal && swapRuns % 2 === 1) swapStrike(i);
         }
+        else { const swap = (d.type === 'B' || d.type === 'LB') ? d.extras : d.batRuns; if (d.legal && swap % 2 === 1) swapStrike(i) }
         if (d.legal && i.legalBalls > 0 && i.legalBalls % 6 === 0) swapStrike(i);
-        if (b.wicket) showFx('WICKET', b.dismissalText); else if (b.batRuns === 6) showFx('SIX', 'Maximum'); else if (b.batRuns === 4) showFx('FOUR', 'Boundary'); else if (b.type === 'WD') showFx('WIDE', 'Extra ball'); else if (b.type === 'NB') showFx('NO', 'Extra ball'); else if (b.batRuns === 0 && d.legal) showFx('DOT', 'No run');
+        if (b.wicket) showFx('WICKET', b.dismissalText);
+        else if (b.batRuns === 6) showFx('SIX', 'Maximum');
+        else if (b.batRuns === 4) showFx('FOUR', 'Boundary');
+        else if (b.type === 'WD') showFx('WIDE', 'Extra ball');
+        else if (b.type === 'NB') showFx('NO', 'Extra ball');
+        else if (b.batRuns === 0 && d.legal) showFx('DOT', 'No run');
         const ended = App.checkEnd();
-        if (!ended && d.legal && i.legalBalls > 0 && i.legalBalls % 6 === 0) { S.modal = { type: 'nextBowler', completedOver: Math.floor(i.legalBalls / 6) } }
-        save(); render();
+        if (!ended && d.legal && i.legalBalls > 0 && i.legalBalls % 6 === 0)
+          S.modal = { type: 'nextBowler', completedOver: Math.floor(i.legalBalls / 6) };
+        save(); render()
       },
-      setNextBowler() { const val = $('nextBowler').value; if (!val) { alert('Select next bowler.'); return } inn().bowler = val; S.modal = null; setNotice(`Over ${Math.floor(inn().legalBalls / 6) + 1} live`); save(); render() },
+      setNextBowler() {
+        const val = $('nextBowler').value; if (!val) { alert('Select next bowler.'); return }
+        inn().bowler = val; S.modal = null; setNotice(`Over ${Math.floor(inn().legalBalls / 6) + 1} live`); save(); render()
+      },
       checkEnd() {
-        const i = inn(); const maxBalls = Number(S.setup.overs) * 6;
-        let end = false, reason = '';
-        if (i.target && i.runs >= i.target) { end = true; reason = 'Target achieved' }
-        else if (i.wickets >= maxWickets(i)) { end = true; reason = 'All out' }
-        else if (i.legalBalls >= maxBalls) { end = true; reason = 'Overs completed' }
+        const i = inn(), maxBalls = Number(S.setup.overs) * 6; let end = false;
+        if (i.target && i.runs >= i.target) end = true;
+        else if (i.wickets >= maxWickets(i)) end = true;
+        else if (i.legalBalls >= maxBalls) end = true;
         if (!end) return false;
-        i.completed = true; i.resultText = reason;
-        if (i.number === 1) {
-          const target = i.runs + 1; const second = makeInnings(2, i.bowling, i.batting, target); S.innings[1] = second; S.phase = 'inningsBreak'; S.modal = null; setNotice('Innings break');
-        } else { S.phase = 'matchEnd'; S.modal = null; setNotice('Match complete') }
-        return true;
+        i.completed = true; i.resultText = 'done';
+        if (i.number === 1) { const target = i.runs + 1; S.innings[1] = makeInnings(2, i.bowling, i.batting, target); S.phase = 'inningsBreak'; S.modal = null; setNotice('Innings break') }
+        else { S.phase = 'matchEnd'; S.modal = null; setNotice('Match complete') }
+        return true
       },
       startChase() { S.currentInnings = 1; S.phase = 'openers'; S.tab = 'scoring'; setNotice('Select chase openers'); save(); render() },
       restartSame() {
-        if (!confirm('Restart with the same teams?')) return;
+        if (!confirm('Restart with same teams?')) return;
         const setup = JSON.parse(JSON.stringify(S.setup)), teams = JSON.parse(JSON.stringify(S.teams)), pool = [...S.pool];
-        S = defaultState(); S.setup = setup; S.teams = teams; S.pool = pool; S.phase = 'toss'; save(); render();
+        S = defaultState(); S.setup = setup; S.teams = teams; S.pool = pool; S.phase = 'toss'; save(); render()
       },
       newMatch() { S = defaultState(); S.phase = 'setup'; save(); render() }
     };
     window.App = App;
-    function renderStep(k, title, sub) { return `<div class="step-head"><div><div class="step-kicker">Step ${k}</div><div class="step-title">${title}</div><p class="step-sub">${sub}</p></div><button class="btn secondary small" onclick="App.resetAll()">New Match</button></div>` }
-    function renderWelcome() { return `<section class="hero screen"><div class="hero-card"><div class="eyebrow">HTML single file scorer</div><div class="hero-title">Match Starts <span>Now</span></div><p class="hero-sub">A full gully cricket scoring system with lineup setup, captains, automatic toss, live scoring, wicket panels, next bowler prompts, clean scorecard, records and final match result.</p><div class="hero-actions"><button class="btn primary" onclick="App.start()">Create Match</button><button class="btn secondary" onclick="App.quickDemo()">Use Demo Teams</button></div></div></section>` }
-    function renderSetup() {
+
+    function rStep(k, t, s) { return `<div class="step-head"><div><div class="step-kicker">Step ${k}</div><div class="step-title">${t}</div><p class="step-sub">${s}</p></div><button class="btn secondary sm" onclick="App.resetAll()">New Match</button></div>` }
+    function rWelcome() { return `<section class="hero screen"><div class="hero-card"><div class="badge">HTML Single-File Scorer</div><div class="hero-title">Match Starts <em>Now</em></div><p class="hero-sub">Full gully cricket scoring — lineup, auto toss, live ball-by-ball, wicket panels, scorecards and match result.</p><div class="hero-actions"><button class="btn primary" onclick="App.start()">Create Match</button><button class="btn secondary" onclick="App.start()">Use Demo Teams</button></div><div class="hero-stats"><div class="hs"><div class="k">Ball</div><div class="v">Live</div></div><div class="hs"><div class="k">Formats</div><div class="v">All</div></div><div class="hs"><div class="k">Players</div><div class="v">&#8734;</div></div><div class="hs"><div class="k">Innings</div><div class="v">2</div></div></div></div></section>` }
+    function rSetup() {
       const p = S.pool.join('\n'), a = S.teams.A.players.join('\n'), b = S.teams.B.players.join('\n');
-      return `<section class="screen">${renderStep('01', 'Lineup Setup', 'Create teams, assign captains, lock match rules, then move to the automatic toss center.')}
-        <div class="setup-layout">
-          <div class="glass panel grid">
-            <div class="mini-title"><h3>Match Rules</h3><span>No retire rule</span></div>
-            <div class="grid two"><label class="field"><span class="label">Match Name</span><input id="matchName" value="${esc(S.setup.matchName)}"></label><label class="field"><span class="label">Venue</span><input id="venue" value="${esc(S.setup.venue)}"></label></div>
-            <div class="grid two"><label class="field"><span class="label">Overs</span><input id="overs" type="number" min="1" max="50" value="${esc(S.setup.overs)}"></label><label class="field"><span class="label">Ball Type</span><input id="ballType" value="${esc(S.setup.ballType)}"></label></div>
-            <label class="field"><span class="label">All Players Pool</span><textarea id="playerPool">${esc(p)}</textarea><span class="hint">Write 12 players or more. One name per line. Auto Draft will split them into two teams.</span></label>
-            <button class="btn cyan full" onclick="App.autoDraft()">Auto Draft Teams</button>
-          </div>
-          <div class="glass panel grid">
-            <div class="mini-title"><h3>Teams & Captains</h3><span>Lineup lock</span></div>
-            <div class="grid two"><label class="field"><span class="label">Team A Name</span><input id="teamA" value="${esc(S.setup.teamA)}"></label><label class="field"><span class="label">Team B Name</span><input id="teamB" value="${esc(S.setup.teamB)}"></label></div>
-            <div class="grid two"><label class="field"><span class="label">Team A Captain</span><input id="captainA" value="${esc(S.setup.captainA)}"></label><label class="field"><span class="label">Team B Captain</span><input id="captainB" value="${esc(S.setup.captainB)}"></label></div>
-            <div class="grid two"><label class="field"><span class="label">Team A Players</span><textarea id="teamAPlayers">${esc(a)}</textarea></label><label class="field"><span class="label">Team B Players</span><textarea id="teamBPlayers">${esc(b)}</textarea></label></div>
-            <div class="team-preview">${renderTeamPreview('A')}${renderTeamPreview('B')}</div>
-            <button class="btn primary full" onclick="App.lockSetup()">Lock Lineups & Go Toss</button>
-          </div>
-        </div></section>`
+      return `<section class="screen">${rStep('01', 'Lineup Setup', 'Create teams, assign captains, set match rules.')}
+<div class="setup-layout">
+<div class="glass panel grid">
+<div class="mini-title"><h3>Match Rules</h3><span>Format</span></div>
+<div class="grid two"><label class="field"><span class="label">Match Name</span><input id="matchName" value="${esc(S.setup.matchName)}"></label><label class="field"><span class="label">Venue</span><input id="venue" value="${esc(S.setup.venue)}"></label></div>
+<div class="grid two"><label class="field"><span class="label">Overs</span><input id="overs" type="number" min="1" max="50" value="${esc(S.setup.overs)}"></label><label class="field"><span class="label">Ball Type</span><input id="ballType" value="${esc(S.setup.ballType)}"></label></div>
+<label class="field"><span class="label">All Players Pool</span><textarea id="playerPool">${esc(p)}</textarea><span class="hint">One name per line. Auto Draft splits them alternately.</span></label>
+<button class="btn cyan full" onclick="App.autoDraft()">Auto Draft Teams</button>
+</div>
+<div class="glass panel grid">
+<div class="mini-title"><h3>Teams &amp; Captains</h3><span>Lineup lock</span></div>
+<div class="grid two"><label class="field"><span class="label">Team A Name</span><input id="teamA" value="${esc(S.setup.teamA)}"></label><label class="field"><span class="label">Team B Name</span><input id="teamB" value="${esc(S.setup.teamB)}"></label></div>
+<div class="grid two"><label class="field"><span class="label">Team A Captain</span><input id="captainA" value="${esc(S.setup.captainA)}"></label><label class="field"><span class="label">Team B Captain</span><input id="captainB" value="${esc(S.setup.captainB)}"></label></div>
+<div class="grid two"><label class="field"><span class="label">Team A Players</span><textarea id="teamAPlayers">${esc(a)}</textarea></label><label class="field"><span class="label">Team B Players</span><textarea id="teamBPlayers">${esc(b)}</textarea></label></div>
+<div>${rTeamPreview('A')}${rTeamPreview('B')}</div>
+<button class="btn primary full" onclick="App.lockSetup()">Lock Lineups &amp; Go Toss</button>
+</div></div></section>`}
+    function rTeamPreview(k) { return `<div class="team-card"><h4><span>${esc(teamName(k))}</span><span class="cap-badge">Captain ${esc(captain(k))}</span></h4><div class="chips">${S.teams[k].players.map(p => `<span class="chip ${p === captain(k) ? 'cap' : ''}">${p === captain(k) ? '&#128081; ' : ''}${esc(p)}</span>`).join('')}</div></div>` }
+    function rToss() {
+      const t = S.toss, coin = t.flipping ? '?' : (t.coinResult ? t.coinResult[0] : '?');
+      const res = t.done ? `<div class="toss-result"><div class="section-title"><h3>Toss Result</h3><p>Automatic</p></div><div class="result-grid"><div class="result-tile"><div class="k">Caller</div><div class="v">${esc(teamName(t.caller))}</div></div><div class="result-tile"><div class="k">Call</div><div class="v">${esc(t.call)}</div></div><div class="result-tile"><div class="k">Coin</div><div class="v">${esc(t.coinResult)}</div></div><div class="result-tile"><div class="k">Winner</div><div class="v">${esc(teamName(t.winner))}</div></div></div><div class="target-row"><div class="tgt">Decision <strong>${esc(t.decision)} first</strong></div><div class="tgt">Batting <strong>${esc(teamName(t.batFirst))}</strong></div><div class="tgt">Bowling <strong>${esc(teamName(t.bowlFirst))}</strong></div></div></div>` : `<div class="empty">Toss result will appear here</div>`;
+      return `<section class="screen">${rStep('02', 'Toss Center', 'Fully automatic toss — no manual selection needed.')}
+<div class="toss-layout">
+<div class="glass coin-wrap"><div class="coin ${t.flipping ? 'flip' : ''}">${esc(coin)}</div></div>
+<div class="glass panel toss-info">
+<div class="versus"><div class="cap-card"><div class="side">Team A Captain</div><div class="name">${esc(captain('A'))}</div><div class="tm">${esc(teamName('A'))}</div></div><div class="vs-txt">VS</div><div class="cap-card"><div class="side">Team B Captain</div><div class="name">${esc(captain('B'))}</div><div class="tm">${esc(teamName('B'))}</div></div></div>
+<button class="btn primary full" onclick="App.autoToss()" ${t.flipping ? 'disabled' : ''}>${t.flipping ? 'Flipping...' : t.done ? 'Toss Again' : 'Start Automatic Toss'}</button>
+${t.flipping ? '<div class="empty">Coin is in the air...</div>' : res}
+<button class="btn green full" onclick="App.goOpeners()" ${!t.done || t.flipping ? 'disabled' : ''}>Continue to Openers</button>
+</div></div></section>`}
+    function rOpeners() {
+      const i = inn(), bat = i.batting, bowl = i.bowling;
+      const stO = i.batters.map((n, x) => `<option value="${esc(n)}" ${x === 0 ? 'selected' : ''}>${esc(n)}${n === captain(bat) ? ' (C)' : ''}</option>`).join('');
+      const nsO = i.batters.map((n, x) => `<option value="${esc(n)}" ${x === 1 ? 'selected' : ''}>${esc(n)}${n === captain(bat) ? ' (C)' : ''}</option>`).join('');
+      const bwO = i.bowlers.map(n => `<option value="${esc(n)}">${esc(n)}${n === captain(bowl) ? ' (C)' : ''}</option>`).join('');
+      return `<section class="screen">${rStep(i.number === 1 ? '03' : '05', `Innings ${i.number} Setup`, `${teamName(bat)} bats against ${teamName(bowl)}.`)}
+<div class="openers-layout"><div class="glass panel"><div class="section-title"><h3>${esc(teamName(bat))} Lineup</h3><p>${i.target ? `Target ${i.target}` : 'First innings'}</p></div><div class="lineup-list">${i.batters.map((p, x) => `<div class="player-row"><strong>${x + 1}. ${esc(p)} ${p === captain(bat) ? '(C)' : ''}</strong><span>${x < 2 ? 'Opener' : 'Batter'}</span></div>`).join('')}</div></div>
+<div class="glass panel grid"><div class="section-title"><h3>Opening Selection</h3><p>Required</p></div><label class="field"><span class="label">Striker</span><select id="strikerSelect">${stO}</select></label><label class="field"><span class="label">Non-Striker</span><select id="nonStrikerSelect">${nsO}</select></label><label class="field"><span class="label">Opening Bowler</span><select id="bowlerSelect">${bwO}</select></label>${i.target ? `<div class="toss-result"><div class="result-tile"><div class="k">Chase Target</div><div class="v">${i.target} runs</div></div></div>` : ''}<button class="btn primary full" onclick="App.startInnings()">Start Innings</button></div></div></section>`
     }
-    function renderTeamPreview(k) { const players = S.teams[k].players; return `<div class="team-card"><h4><span>${esc(teamName(k))}</span><span class="captain-badge">Captain ${esc(captain(k))}</span></h4><div class="chips">${players.map(p => `<span class="chip ${p === captain(k) ? 'captain' : ''}">${p === captain(k) ? '👑 ' : ''}${esc(p)}</span>`).join('')}</div></div>` }
-    function renderToss() {
-      const t = S.toss; const coin = t.flipping ? '?' : (t.coinResult ? t.coinResult[0] : '?');
-      const result = t.done ? `<div class="toss-result"><div class="section-title"><h3>Toss Result</h3><p>Automatic decision</p></div><div class="result-grid"><div class="result-tile"><div class="k">Caller</div><div class="v">${esc(teamName(t.caller))}</div></div><div class="result-tile"><div class="k">Call</div><div class="v">${esc(t.call)}</div></div><div class="result-tile"><div class="k">Coin</div><div class="v">${esc(t.coinResult)}</div></div><div class="result-tile"><div class="k">Winner</div><div class="v">${esc(teamName(t.winner))}</div></div></div><div class="target-banner"><div class="target-item">Decision <strong>${esc(t.decision)} first</strong></div><div class="target-item">Batting First <strong>${esc(teamName(t.batFirst))}</strong></div><div class="target-item">Bowling First <strong>${esc(teamName(t.bowlFirst))}</strong></div></div></div>` : `<div class="empty">Toss result will appear here after coin flip</div>`;
-      return `<section class="screen">${renderStep('02', 'Toss Center', 'The app automatically chooses the calling captain, call, coin result and bat/bowl decision. No manual winner selection.')}
-        <div class="toss-stage">
-          <div class="glass coin-wrap"><div class="coin ${t.flipping ? 'flipping' : ''}">${esc(coin)}</div></div>
-          <div class="glass panel toss-info">
-            <div class="versus"><div class="captain-card"><div class="side">Team A Captain</div><div class="name">${esc(captain('A'))}</div><div class="cap">${esc(teamName('A'))}</div></div><div class="vs">VS</div><div class="captain-card"><div class="side">Team B Captain</div><div class="name">${esc(captain('B'))}</div><div class="cap">${esc(teamName('B'))}</div></div></div>
-            <button class="btn primary full" onclick="App.autoToss()" ${t.flipping ? 'disabled' : ''}>${t.flipping ? 'Flipping Coin...' : t.done ? 'Run Toss Again' : 'Start Automatic Toss'}</button>
-            ${t.flipping ? '<div class="empty">Coin is spinning in the air...</div>' : result}
-            <button class="btn green full" onclick="App.goOpeners()" ${!t.done || t.flipping ? 'disabled' : ''}>Continue to Openers</button>
-          </div>
-        </div></section>`
+    function rScoreboard() {
+      const i = inn(), c = currentScore(), req = requiredInfo(i), left = Number(S.setup.overs) * 6 - i.legalBalls;
+      return `<div class="scoreboard"><div class="scorebar"></div><div class="score-inner"><div class="score-top"><div class="match-pill"><span class="dot"></span> Innings ${i.number} Live</div><div class="venue-txt">${esc(S.setup.venue)} &middot; ${esc(S.setup.ballType)}</div></div><div class="score-main"><div class="runs">${c.runs}<span>/${c.wickets}</span></div><div class="score-meta"><h2>${esc(teamName(i.batting))}</h2><p>${c.overs} overs &middot; CRR ${c.rr}</p></div></div>${req ? `<div class="target-row"><div class="tgt">Target <strong>${i.target}</strong></div><div class="tgt">Need <strong>${req.need}</strong></div><div class="tgt">Balls left <strong>${req.left}</strong></div><div class="tgt">Req RR <strong>${req.rrr === Infinity ? '&infin;' : req.rrr}</strong></div></div>` : ''}<div class="stat-row"><div class="stat"><div class="k">Overs Left</div><div class="v lime">${oversText(Math.max(left, 0))}</div></div><div class="stat"><div class="k">Fours</div><div class="v cyan">${cB(i, 4)}</div></div><div class="stat"><div class="k">Sixes</div><div class="v green">${cB(i, 6)}</div></div><div class="stat"><div class="k">Dots</div><div class="v gold">${i.balls.filter(b => b.legal && b.total === 0).length}</div></div><div class="stat"><div class="k">Extras</div><div class="v red">${i.extras.total}</div></div><div class="stat"><div class="k">Wkts Left</div><div class="v">${Math.max(maxWickets(i) - i.wickets, 0)}</div></div></div></div></div>`
     }
-    function renderOpeners() {
-      const i = inn(); const bat = i.batting, bowl = i.bowling;
-      const strikerOpts = i.batters.map((n, idx) => `<option value="${esc(n)}" ${idx === 0 ? 'selected' : ''}>${esc(n)}${n === captain(bat) ? ' 👑' : ''}</option>`).join('');
-      const nonStrikerOpts = i.batters.map((n, idx) => `<option value="${esc(n)}" ${idx === 1 ? 'selected' : ''}>${esc(n)}${n === captain(bat) ? ' 👑' : ''}</option>`).join('');
-      const bowlOpts = i.bowlers.map(n => `<option value="${esc(n)}">${esc(n)}${n === captain(bowl) ? ' 👑' : ''}</option>`).join('');
-      return `<section class="screen">${renderStep(i.number === 1 ? '03' : '05', `Innings ${i.number} Setup`, `Select striker, non-striker and opening bowler for ${teamName(bat)} vs ${teamName(bowl)}.`)}
-        <div class="openers-layout"><div class="glass panel"><div class="section-title"><h3>${esc(teamName(bat))} Batting Lineup</h3><p>${i.target ? `Target ${i.target}` : 'First innings'}</p></div><div class="lineup-list">${i.batters.map((p, idx) => `<div class="player-row"><strong>${idx + 1}. ${esc(p)} ${p === captain(bat) ? '👑' : ''}</strong><span>${idx < 2 ? 'Opener option' : 'Batter'}</span></div>`).join('')}</div></div>
-        <div class="glass panel grid"><div class="section-title"><h3>Opening Selection</h3><p>Required</p></div><label class="field"><span class="label">Striker</span><select id="strikerSelect">${strikerOpts}</select></label><label class="field"><span class="label">Non-Striker</span><select id="nonStrikerSelect">${nonStrikerOpts}</select></label><label class="field"><span class="label">Opening Bowler</span><select id="bowlerSelect">${bowlOpts}</select></label>${i.target ? `<div class="toss-result"><div class="result-tile"><div class="k">Chase Target</div><div class="v">${i.target} runs</div></div></div>` : ''}<button class="btn primary full" onclick="App.startInnings()">Start Innings</button></div></div></section>`
-    }
-    function renderScoreboard() {
-      const i = inn(), c = currentScore(), req = requiredInfo(i); const left = Number(S.setup.overs) * 6 - i.legalBalls;
-      return `<div class="scoreboard"><div class="scorebar"></div><div class="score-inner"><div class="score-top"><div class="match-pill"><span class="live-dot"></span> Innings ${i.number} Live</div><div class="venue">${esc(S.setup.venue)} • ${esc(S.setup.ballType)}</div></div><div class="score-main"><div class="runs">${c.runs}<span>/${c.wickets}</span></div><div class="score-meta"><h2>${esc(teamName(i.batting))}</h2><p>${c.overs} overs • CRR ${c.rr}</p></div></div>${req ? `<div class="target-banner"><div class="target-item">Target <strong>${i.target}</strong></div><div class="target-item">Need <strong>${req.need}</strong></div><div class="target-item">Balls Left <strong>${req.left}</strong></div><div class="target-item">Required RR <strong>${req.rrr === Infinity ? '∞' : req.rrr}</strong></div></div>` : ''}<div class="stat-row"><div class="stat"><div class="k">Overs Left</div><div class="v lime">${oversText(Math.max(left, 0))}</div></div><div class="stat"><div class="k">Fours</div><div class="v cyan">${countBoundaries(i, 4)}</div></div><div class="stat"><div class="k">Sixes</div><div class="v green">${countBoundaries(i, 6)}</div></div><div class="stat"><div class="k">Dots</div><div class="v gold">${i.balls.filter(b => b.legal && b.total === 0).length}</div></div><div class="stat"><div class="k">Extras</div><div class="v red">${i.extras.total}</div></div><div class="stat"><div class="k">Wickets Left</div><div class="v">${Math.max(maxWickets(i) - i.wickets, 0)}</div></div></div></div></div>`
-    }
-    function countBoundaries(i, n) { return Object.values(i.batStats).reduce((s, b) => s + (n === 4 ? b.fours : b.sixes), 0) }
-    function renderLive() { return `<section class="screen">${renderScoreboard()}<div class="main-layout"><div class="stack"><div class="tabs"><button class="tab ${S.tab === 'scoring' ? 'active' : ''}" onclick="App.setTab('scoring')">Scoring</button><button class="tab ${S.tab === 'scorecard' ? 'active' : ''}" onclick="App.setTab('scorecard')">Scorecard</button><button class="tab ${S.tab === 'records' ? 'active' : ''}" onclick="App.setTab('records')">Records</button><button class="tab ${S.tab === 'summary' ? 'active' : ''}" onclick="App.setTab('summary')">Summary</button></div>${S.tab === 'scoring' ? renderScoring() : S.tab === 'scorecard' ? renderScorecard() : S.tab === 'records' ? renderRecords() : renderSummary()}</div><div class="stack">${renderSidePanel()}</div></div><div class="mobile-bottom-space"></div></section>` }
-    function renderScoring() { return `<div class="glass panel"><div class="section-title"><h3>Ball-by-Ball Scoring</h3><p>Tap result</p></div><div class="run-grid"><button class="run-btn" onclick="App.addRun(0)">0<small>Dot</small></button><button class="run-btn" onclick="App.addRun(1)">1<small>Single</small></button><button class="run-btn" onclick="App.addRun(2)">2<small>Double</small></button><button class="run-btn" onclick="App.addRun(3)">3<small>Triple</small></button><button class="run-btn four" onclick="App.addRun(4)">4<small>Four</small></button><button class="run-btn six" onclick="App.addRun(6)">6<small>Six</small></button><button class="run-btn wicket" onclick="App.openWicket()">W<small>Wicket</small></button><button class="run-btn extra" onclick="App.addExtra('WD',1)">Wd<small>Wide</small></button></div><div class="extras-grid"><button class="extra-btn" onclick="App.addExtra('NB',1)">No Ball +1</button><button class="extra-btn" onclick="App.addExtra('B',1)">Bye 1</button><button class="extra-btn" onclick="App.addExtra('B',2)">Bye 2</button><button class="extra-btn" onclick="App.addExtra('LB',1)">Leg Bye 1</button><button class="extra-btn" onclick="App.addExtra('LB',2)">Leg Bye 2</button><button class="extra-btn" onclick="App.addExtra('B',4)">Bye 4</button></div></div>` }
-    function renderSidePanel() { const i = inn(); return `${renderBatters()}${renderBowler()}${renderOverBox()}${renderCommentary()}<div class="danger-zone"><button class="btn secondary small" onclick="App.restartSame()">Restart Same Teams</button><button class="btn red small" onclick="App.resetAll()">Reset All</button></div>` }
-    function batterCard(name, strike) { const i = inn(); const b = i.batStats[name] || newBatter(name); const sr = b.balls ? ((b.runs / b.balls) * 100).toFixed(1) : '0.0'; return `<div class="batter ${strike ? 'strike' : ''}"><div class="role">${strike ? 'Striker' : 'Non-Striker'}</div><div class="b-name">${esc(name)} ${name === captain(i.batting) ? '👑' : ''}</div><div class="b-score">${b.runs}<small>(${b.balls})</small></div><div class="b-detail">4s ${b.fours} • 6s ${b.sixes} • SR ${sr}</div></div>` }
-    function renderBatters() { const i = inn(); return `<div class="glass panel"><div class="section-title"><h3>Batters</h3><p>Strike auto rotates</p></div><div class="batters">${batterCard(i.striker, true)}${batterCard(i.nonStriker, false)}</div></div>` }
-    function renderBowler() { const i = inn(); const b = i.bowlStats[i.bowler] || newBowler(i.bowler); return `<div class="bowler-card"><div class="bowler-top"><div><div class="role">Current Bowler</div><div class="bowler-name">${esc(i.bowler)} ${i.bowler === captain(i.bowling) ? '👑' : ''}</div></div><div class="match-pill">${oversText(b.balls)} ov</div></div><div class="bowler-numbers"><span>R <strong>${b.runs}</strong></span><span>W <strong>${b.wickets}</strong></span><span>Dots <strong>${b.dots}</strong></span><span>Wd <strong>${b.wides}</strong></span><span>Nb <strong>${b.noballs}</strong></span></div></div>` }
-    function renderOverBox() { const i = inn(); const groups = groupOvers(i); const cur = groups[groups.length - 1] || []; const lastComplete = groups.filter(g => g.length && g.filter(b => b.legal).length >= 6).slice(-1)[0] || []; return `<div class="over-box"><div class="section-title"><h3>This Over</h3><p>${cur.reduce((s, b) => s + b.total, 0)} runs</p></div><div class="ball-row">${cur.length ? cur.map(b => `<span class="ball ${ballClass(b)}">${ballLabel(b)}</span>`).join('') : '<span class="chip">No balls yet</span>'}</div></div><div class="over-box"><div class="section-title"><h3>Last Over</h3><p>${lastComplete.reduce((s, b) => s + b.total, 0)} runs</p></div><div class="ball-row">${lastComplete.length ? lastComplete.map(b => `<span class="ball ${ballClass(b)}">${ballLabel(b)}</span>`).join('') : '<span class="chip">No completed over yet</span>'}</div></div>` }
+    function cB(i, n) { return Object.values(i.batStats).reduce((s, b) => s + (n === 4 ? b.fours : b.sixes), 0) }
+    function rLive() { return `<section class="screen">${rScoreboard()}<div class="main-layout"><div class="stack"><div class="tabs"><button class="tab ${S.tab === 'scoring' ? 'active' : ''}" onclick="App.setTab('scoring')">Scoring</button><button class="tab ${S.tab === 'scorecard' ? 'active' : ''}" onclick="App.setTab('scorecard')">Scorecard</button><button class="tab ${S.tab === 'records' ? 'active' : ''}" onclick="App.setTab('records')">Records</button><button class="tab ${S.tab === 'summary' ? 'active' : ''}" onclick="App.setTab('summary')">Summary</button></div>${S.tab === 'scoring' ? rScoring() : S.tab === 'scorecard' ? rScorecard() : S.tab === 'records' ? rRecords() : rSummary()}</div><div class="stack">${rSide()}</div></div><div class="mobile-space"></div></section>` }
+    function rScoring() { return `<div class="glass panel"><div class="section-title"><h3>Ball-by-Ball Scoring</h3><p>Tap result</p></div><div class="run-grid"><button class="run-btn" onclick="App.addRun(0)">0<small>Dot</small></button><button class="run-btn" onclick="App.addRun(1)">1<small>Single</small></button><button class="run-btn" onclick="App.addRun(2)">2<small>Double</small></button><button class="run-btn" onclick="App.addRun(3)">3<small>Triple</small></button><button class="run-btn four" onclick="App.addRun(4)">4<small>Four</small></button><button class="run-btn six" onclick="App.addRun(6)">6<small>Six</small></button><button class="run-btn wicket" onclick="App.openWicket()">W<small>Wicket</small></button><button class="run-btn extra" onclick="App.addExtra('WD',1)">Wd<small>Wide</small></button></div><div class="extras-grid"><button class="extra-btn" onclick="App.addExtra('NB',1)">No Ball +1</button><button class="extra-btn" onclick="App.addExtra('B',1)">Bye 1</button><button class="extra-btn" onclick="App.addExtra('B',2)">Bye 2</button><button class="extra-btn" onclick="App.addExtra('LB',1)">Leg Bye 1</button><button class="extra-btn" onclick="App.addExtra('LB',2)">Leg Bye 2</button><button class="extra-btn" onclick="App.addExtra('B',4)">Bye 4</button></div></div>` }
+    function rSide() { return `${rBats()}${rBowl()}${rOver()}${rComm()}<div class="danger-zone"><button class="btn secondary sm" onclick="App.restartSame()">Restart Teams</button><button class="btn red sm" onclick="App.resetAll()">Reset All</button></div>` }
+    function batCard(name, strike) { const i = inn(), b = i.batStats[name] || newBatter(name), sr = b.balls ? ((b.runs / b.balls) * 100).toFixed(1) : '0.0'; return `<div class="batter ${strike ? 'strike' : ''}"><div class="role">${strike ? 'Striker' : 'Non-Striker'}</div><div class="b-name">${esc(name)} ${name === captain(i.batting) ? '(C)' : ''}</div><div class="b-score">${b.runs}<small>(${b.balls})</small></div><div class="b-detail">4s ${b.fours} &middot; 6s ${b.sixes} &middot; SR ${sr}</div></div>` }
+    function rBats() { const i = inn(); return `<div class="glass panel"><div class="section-title"><h3>Batters</h3><p>Strike auto-rotates</p></div><div class="batters">${batCard(i.striker, true)}${batCard(i.nonStriker, false)}</div></div>` }
+    function rBowl() { const i = inn(), b = i.bowlStats[i.bowler] || newBowler(i.bowler); return `<div class="bowler-card"><div class="bowler-top"><div><div class="role">Current Bowler</div><div class="bowler-name">${esc(i.bowler)} ${i.bowler === captain(i.bowling) ? '(C)' : ''}</div></div><div class="match-pill">${oversText(b.balls)} ov</div></div><div class="bowler-nums"><span>R <strong>${b.runs}</strong></span><span>W <strong>${b.wickets}</strong></span><span>Dots <strong>${b.dots}</strong></span><span>Wd <strong>${b.wides}</strong></span><span>Nb <strong>${b.noballs}</strong></span></div></div>` }
+    function rOver() { const i = inn(), g = groupOvers(i), cur = g[g.length - 1] || [], last = g.filter(x => x.filter(b => b.legal).length >= 6).slice(-1)[0] || []; return `<div class="over-box"><div class="section-title"><h3>This Over</h3><p>${cur.reduce((s, b) => s + b.total, 0)} runs</p></div><div class="ball-row">${cur.length ? cur.map(b => `<span class="ball ${ballClass(b)}">${ballLabel(b)}</span>`).join('') : '<span class="chip">No balls yet</span>'}</div></div><div class="over-box"><div class="section-title"><h3>Last Over</h3><p>${last.reduce((s, b) => s + b.total, 0)} runs</p></div><div class="ball-row">${last.length ? last.map(b => `<span class="ball ${ballClass(b)}">${ballLabel(b)}</span>`).join('') : '<span class="chip">No completed over yet</span>'}</div></div>` }
     function groupOvers(i) { const g = []; i.balls.forEach(b => { if (!g[b.over]) g[b.over] = []; g[b.over].push(b) }); return g.filter(Boolean) }
-    function renderCommentary() { return `<div class="glass panel"><div class="section-title"><h3>Smart Commentary</h3><p>Latest first</p></div><div class="commentary">${S.commentary.length ? S.commentary.slice(0, 8).map(c => `<div class="comm"><div class="tag">${esc(c.label)}</div><p>${c.html}</p></div>`).join('') : '<div class="empty">Commentary will appear here</div>'}</div></div>` }
-    function renderScorecard() { const i = inn(); return `<div class="glass panel"><div class="section-title"><h3>${esc(teamName(i.batting))} Scorecard</h3><p>${scoreLine(i)} in ${oversText(i.legalBalls)}</p></div><div class="table-wrap"><table><thead><tr><th>Batter</th><th>Status</th><th class="num">R</th><th class="num">B</th><th class="num">4s</th><th class="num">6s</th><th class="num">SR</th></tr></thead><tbody>${i.batters.map(n => batRow(i, i.batStats[n])).join('')}</tbody></table></div><div style="height:12px"></div><div class="section-title"><h3>${esc(teamName(i.bowling))} Bowling</h3><p>Bowler analysis</p></div><div class="table-wrap"><table><thead><tr><th>Bowler</th><th class="num">O</th><th class="num">R</th><th class="num">W</th><th class="num">Dots</th><th class="num">Wd</th><th class="num">Nb</th><th class="num">Eco</th></tr></thead><tbody>${Object.values(i.bowlStats).filter(b => b.balls || b.runs).map(bowlRow).join('') || '<tr><td colspan="8">No bowling data yet.</td></tr>'}</tbody></table></div></div>` }
-    function batRow(i, b) { const sr = b.balls ? ((b.runs / b.balls) * 100).toFixed(1) : '0.0'; let status = b.status; if (b.out) { status = b.dismissal === 'Caught' ? `c ${b.fielder || 'fielder'} b ${b.bowler}` : b.dismissal === 'Bowled' ? `b ${b.bowler}` : b.dismissal === 'LBW' ? `lbw b ${b.bowler}` : b.dismissal === 'Run Out' ? `run out ${b.fielder || ''}` : `${b.dismissal} ${b.fielder ? b.fielder : ''}`; } else if (b.status === 'Batting') status = 'Not out'; return `<tr><td class="name">${esc(b.name)} ${b.name === captain(i.batting) ? '👑' : ''}</td><td class="${b.out ? 'out' : b.status === 'Batting' ? 'notout' : ''}">${esc(status)}</td><td class="num">${b.runs}</td><td class="num">${b.balls}</td><td class="num">${b.fours}</td><td class="num">${b.sixes}</td><td class="num">${sr}</td></tr>` }
+    function rComm() { return `<div class="glass panel"><div class="section-title"><h3>Commentary</h3><p>Latest first</p></div><div class="commentary">${S.commentary.length ? S.commentary.slice(0, 8).map(c => `<div class="comm"><div class="tag">${esc(c.label)}</div><p>${c.html}</p></div>`).join('') : '<div class="empty">Commentary appears here</div>'}</div></div>` }
+    function rScorecard() { const i = inn(); return `<div class="glass panel"><div class="section-title"><h3>${esc(teamName(i.batting))} Batting</h3><p>${scoreLine(i)} in ${oversText(i.legalBalls)}</p></div><div class="table-wrap"><table><thead><tr><th>Batter</th><th>Status</th><th class="num">R</th><th class="num">B</th><th class="num">4s</th><th class="num">6s</th><th class="num">SR</th></tr></thead><tbody>${i.batters.map(n => batRow(i, i.batStats[n])).join('')}</tbody></table></div><div style="height:10px"></div><div class="section-title"><h3>${esc(teamName(i.bowling))} Bowling</h3></div><div class="table-wrap"><table><thead><tr><th>Bowler</th><th class="num">O</th><th class="num">R</th><th class="num">W</th><th class="num">Dots</th><th class="num">Wd</th><th class="num">Nb</th><th class="num">Eco</th></tr></thead><tbody>${Object.values(i.bowlStats).filter(b => b.balls || b.runs).map(bowlRow).join('') || '<tr><td colspan="8">No data yet.</td></tr>'}</tbody></table></div></div>` }
+    function batRow(i, b) { const sr = b.balls ? ((b.runs / b.balls) * 100).toFixed(1) : '0.0'; let st = b.status; if (b.out) { st = b.dismissal === 'Caught' ? `c ${b.fielder || 'f'} b ${b.bowler}` : b.dismissal === 'Bowled' ? `b ${b.bowler}` : b.dismissal === 'LBW' ? `lbw b ${b.bowler}` : b.dismissal === 'Run Out' ? `run out ${b.fielder || ''}` : b.dismissal } else if (b.status === 'Batting') st = 'Not out'; return `<tr><td class="name">${esc(b.name)} ${b.name === captain(i.batting) ? '(C)' : ''}</td><td class="${b.out ? 'out' : b.status === 'Batting' ? 'notout' : ''}">${esc(st)}</td><td class="num">${b.runs}</td><td class="num">${b.balls}</td><td class="num">${b.fours}</td><td class="num">${b.sixes}</td><td class="num">${sr}</td></tr>` }
     function bowlRow(b) { const eco = b.balls ? (b.runs / (b.balls / 6)).toFixed(2) : '0.00'; return `<tr><td class="name">${esc(b.name)}</td><td class="num">${oversText(b.balls)}</td><td class="num">${b.runs}</td><td class="num">${b.wickets}</td><td class="num">${b.dots}</td><td class="num">${b.wides}</td><td class="num">${b.noballs}</td><td class="num">${eco}</td></tr>` }
-    function renderRecords() { const i = inn(); const bats = Object.values(i.batStats); const bowls = Object.values(i.bowlStats); const high = bats.slice().sort((a, b) => b.runs - a.runs)[0] || newBatter('-'); const most6 = bats.slice().sort((a, b) => b.sixes - a.sixes)[0] || newBatter('-'); const most4 = bats.slice().sort((a, b) => b.fours - a.fours)[0] || newBatter('-'); const best = bowls.slice().sort((a, b) => b.wickets - a.wickets || a.runs - b.runs)[0] || newBowler('-'); const dots = bowls.slice().sort((a, b) => b.dots - a.dots)[0] || newBowler('-'); const rr = currentScore().rr; return `<div class="glass panel"><div class="section-title"><h3>Records & Match Insights</h3><p>Live leaders</p></div><div class="records"><div class="record"><div class="k">Top Score</div><div class="v">${high.runs}</div><div class="who">${esc(high.name)}</div></div><div class="record"><div class="k">Most Sixes</div><div class="v">${most6.sixes}</div><div class="who">${esc(most6.name)}</div></div><div class="record"><div class="k">Most Fours</div><div class="v">${most4.fours}</div><div class="who">${esc(most4.name)}</div></div><div class="record"><div class="k">Best Bowler</div><div class="v">${best.wickets}/${best.runs}</div><div class="who">${esc(best.name)}</div></div><div class="record"><div class="k">Dot Pressure</div><div class="v">${dots.dots}</div><div class="who">${esc(dots.name)}</div></div><div class="record"><div class="k">Run Rate</div><div class="v">${rr}</div><div class="who">${esc(teamName(i.batting))}</div></div><div class="record"><div class="k">Extras</div><div class="v">${i.extras.total}</div><div class="who">Wd ${i.extras.wides} • Nb ${i.extras.noballs}</div></div><div class="record"><div class="k">Overs</div><div class="v">${oversText(i.legalBalls)}</div><div class="who">of ${S.setup.overs}.0</div></div></div></div>` }
-    function renderSummary() { const i = inn(); return `<div class="glass panel"><div class="section-title"><h3>Match Summary</h3><p>Clean view</p></div><div class="summary-grid"><div class="summary-card"><h4>Batting Team</h4><p><strong>${esc(teamName(i.batting))}</strong> are ${scoreLine(i)} after ${oversText(i.legalBalls)} overs. Current run rate is ${rate(i.runs, i.legalBalls).toFixed(2)}.</p></div><div class="summary-card"><h4>Extras</h4><p>Total extras: ${i.extras.total}. Wides ${i.extras.wides}, No balls ${i.extras.noballs}, Byes ${i.extras.byes}, Leg byes ${i.extras.legbyes}.</p></div><div class="summary-card"><h4>Fall of Wickets</h4><div class="fall-list">${i.fall.length ? i.fall.map(f => `<span class="fall">${f.wicket}-${f.score} ${esc(f.batter)} (${f.over})</span>`).join('') : '<span class="fall">No wickets yet</span>'}</div></div><div class="summary-card"><h4>Current Situation</h4><p>${situationLine(i)}</p></div></div></div>` }
-    function situationLine(i) { const req = requiredInfo(i); if (req) return `${teamName(i.batting)} need ${req.need} runs from ${req.left} balls. Required run rate is ${req.rrr === Infinity ? 'infinite' : req.rrr}.`; return `${teamName(i.batting)} are setting a target. ${Math.max(Number(S.setup.overs) * 6 - i.legalBalls, 0)} balls left in the innings.` }
-    function renderModal() {
-      if (!S.modal) return ''; const i = inn(); if (S.modal.type === 'nextBowler') { const opts = i.bowlers.map(n => `<option value="${esc(n)}" ${n === i.bowler ? 'disabled' : ''}>${esc(n)}${n === captain(i.bowling) ? ' 👑' : ''}</option>`).join(''); return `<div class="overlay"><div class="modal"><div class="modal-head"><div class="modal-title">Over Complete</div><div class="modal-sub">Over ${S.modal.completedOver} is finished. Select the next bowler.</div></div><div class="modal-body"><label class="field"><span class="label">Next Bowler</span><select id="nextBowler">${opts}</select></label><button class="btn primary full" onclick="App.setNextBowler()">Start Next Over</button></div></div></div>` }
-      if (S.modal.type === 'wicket') { const outOpts = [i.striker, i.nonStriker].filter(Boolean).map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join(''); const next = availableBatters(i).map(n => `<option value="${esc(n)}">${esc(n)}${n === captain(i.batting) ? ' 👑' : ''}</option>`).join(''); return `<div class="overlay"><div class="modal"><div class="modal-head"><div class="modal-title">Wicket Panel</div><div class="modal-sub">Choose dismissal details, fielder and next batter.</div></div><div class="modal-body"><div class="grid two"><label class="field"><span class="label">Dismissed Batter</span><select id="outBatter">${outOpts}</select></label><label class="field"><span class="label">Dismissal Type</span><select id="dismissalType"><option>Bowled</option><option>Caught</option><option>Run Out</option><option>LBW</option><option>Stumped</option><option>Caught and Bowled</option><option>Hit Wicket</option></select></label></div><label class="field"><span class="label">Fielder / Catcher / Run Out By</span><input id="fielderName" placeholder="Optional fielder name"></label><div class="grid two"><label class="field"><span class="label">Runs Completed</span><select id="wicketRuns"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label><label class="field"><span class="label">Next Batter</span><select id="nextBatter"><option value="">${(i.wickets + 1) >= maxWickets(i) ? 'No batter needed' : 'Select next batter'}</option>${next}</select></label></div><div class="modal-actions"><button class="btn red full" onclick="App.confirmWicket()">Confirm Wicket</button><button class="btn secondary full" onclick="App.closeModal()">Cancel</button></div></div></div></div>` } return ''
+    function rRecords() {
+      const i = inn(), bats = Object.values(i.batStats), bows = Object.values(i.bowlStats);
+      const high = bats.slice().sort((a, b) => b.runs - a.runs)[0] || newBatter('-');
+      const most6 = bats.slice().sort((a, b) => b.sixes - a.sixes)[0] || newBatter('-');
+      const most4 = bats.slice().sort((a, b) => b.fours - a.fours)[0] || newBatter('-');
+      const best = bows.slice().sort((a, b) => b.wickets - a.wickets || a.runs - b.runs)[0] || newBowler('-');
+      const dots = bows.slice().sort((a, b) => b.dots - a.dots)[0] || newBowler('-');
+      return `<div class="glass panel"><div class="section-title"><h3>Records &amp; Insights</h3><p>Live leaders</p></div><div class="records"><div class="record"><div class="k">Top Score</div><div class="v">${high.runs}</div><div class="who">${esc(high.name)}</div></div><div class="record"><div class="k">Most Sixes</div><div class="v">${most6.sixes}</div><div class="who">${esc(most6.name)}</div></div><div class="record"><div class="k">Most Fours</div><div class="v">${most4.fours}</div><div class="who">${esc(most4.name)}</div></div><div class="record"><div class="k">Best Bowler</div><div class="v">${best.wickets}/${best.runs}</div><div class="who">${esc(best.name)}</div></div><div class="record"><div class="k">Dot Pressure</div><div class="v">${dots.dots}</div><div class="who">${esc(dots.name)}</div></div><div class="record"><div class="k">Run Rate</div><div class="v">${currentScore().rr}</div><div class="who">${esc(teamName(i.batting))}</div></div><div class="record"><div class="k">Extras</div><div class="v">${i.extras.total}</div><div class="who">Wd ${i.extras.wides} &middot; Nb ${i.extras.noballs}</div></div><div class="record"><div class="k">Overs</div><div class="v">${oversText(i.legalBalls)}</div><div class="who">of ${S.setup.overs}.0</div></div></div></div>`
     }
-    function renderBreak() { const first = S.innings[0], second = S.innings[1]; return `<section class="hero screen"><div class="break-card"><div class="eyebrow">Innings Break</div><div class="break-title">Target <span>${second.target}</span></div><div class="mega-score">${esc(teamName(first.batting))} ${first.runs}/${first.wickets}</div><p class="break-sub">${esc(teamName(second.batting))} need ${second.target} runs in ${S.setup.overs}.0 overs. Openers and first bowler will be selected on the next screen.</p><div class="hero-actions"><button class="btn primary" onclick="App.startChase()">Start Chase</button><button class="btn secondary" onclick="App.setTab('scorecard');S.phase='live';S.currentInnings=0;save();render()">View First Innings Scorecard</button></div></div></section>` }
-    function resultText() { const i1 = S.innings[0], i2 = S.innings[1]; if (!i1 || !i2) return 'Match complete'; if (i2.runs >= i2.target) return `${teamName(i2.batting)} won by ${maxWickets(i2) - i2.wickets} wickets`; const diff = i1.runs - i2.runs; if (diff === 0) return 'Match tied'; return `${teamName(i1.batting)} won by ${diff} runs` }
-    function renderMatchEnd() { const i1 = S.innings[0], i2 = S.innings[1]; return `<section class="screen"><div class="end-card"><div class="eyebrow">Match Complete</div><div class="end-title"><span>Game</span> Over</div><p class="end-sub">${esc(resultText())}</p><div class="target-banner" style="justify-content:center"><div class="target-item">${esc(teamName(i1.batting))} <strong>${i1.runs}/${i1.wickets}</strong> (${oversText(i1.legalBalls)})</div><div class="target-item">${esc(teamName(i2.batting))} <strong>${i2.runs}/${i2.wickets}</strong> (${oversText(i2.legalBalls)})</div></div><div class="hero-actions"><button class="btn primary" onclick="S.currentInnings=1;S.phase='live';S.tab='scorecard';save();render()">View Final Scoreboard</button><button class="btn green" onclick="App.restartSame()">Restart Same Teams</button><button class="btn secondary" onclick="App.newMatch()">Create New Teams</button></div></div><div style="height:14px"></div>${renderFinalScorecards()}</section>` }
-    function renderScorecardFor(idx) { const old = S.currentInnings; S.currentInnings = idx; const out = renderScorecard(); S.currentInnings = old; return out }
-    function renderFinalScorecards() { return `<div class="grid two"><div>${renderScorecardFor(0)}</div><div>${renderScorecardFor(1)}</div></div>` }
-    function render() { const app = $('app'); setNotice(S.notice || 'Ready'); let html = ''; if (S.phase === 'welcome') html = renderWelcome(); else if (S.phase === 'setup') html = renderSetup(); else if (S.phase === 'toss') html = renderToss(); else if (S.phase === 'openers') html = renderOpeners(); else if (S.phase === 'live') html = renderLive(); else if (S.phase === 'inningsBreak') html = renderBreak(); else if (S.phase === 'matchEnd') html = renderMatchEnd(); app.innerHTML = html + renderModal(); save() }
+    function rSummary() { const i = inn(); return `<div class="glass panel"><div class="section-title"><h3>Match Summary</h3></div><div class="summary-grid"><div class="sum-card"><h4>Batting</h4><p><strong>${esc(teamName(i.batting))}</strong> are ${scoreLine(i)} after ${oversText(i.legalBalls)} overs. RR: ${rate(i.runs, i.legalBalls).toFixed(2)}.</p></div><div class="sum-card"><h4>Extras</h4><p>Total ${i.extras.total} — Wd ${i.extras.wides}, Nb ${i.extras.noballs}, By ${i.extras.byes}, Lb ${i.extras.legbyes}.</p></div><div class="sum-card"><h4>Fall of Wickets</h4><div class="fall-list">${i.fall.length ? i.fall.map(f => `<span class="fall">${f.wicket}-${f.score} ${esc(f.batter)} (${f.over})</span>`).join('') : '<span class="fall">No wickets yet</span>'}</div></div><div class="sum-card"><h4>Situation</h4><p>${sitLine(i)}</p></div></div></div>` }
+    function sitLine(i) { const req = requiredInfo(i); if (req) return `${teamName(i.batting)} need ${req.need} from ${req.left} balls. RRR: ${req.rrr === Infinity ? '∞' : req.rrr}.`; return `${teamName(i.batting)} setting target. ${Math.max(Number(S.setup.overs) * 6 - i.legalBalls, 0)} balls remain.` }
+    function rModal() {
+      if (!S.modal) return ''; const i = inn();
+      if (S.modal.type === 'nextBowler') { const opts = i.bowlers.map(n => `<option value="${esc(n)}" ${n === i.bowler ? 'disabled' : ''}>${esc(n)}${n === captain(i.bowling) ? ' (C)' : ''}</option>`).join(''); return `<div class="overlay"><div class="modal"><div class="modal-head"><div class="modal-title">Over Complete</div><div class="modal-sub">Over ${S.modal.completedOver} done. Pick next bowler.</div></div><div class="modal-body"><label class="field"><span class="label">Next Bowler</span><select id="nextBowler">${opts}</select></label><button class="btn primary full" onclick="App.setNextBowler()">Start Next Over</button></div></div></div>` }
+      if (S.modal.type === 'wicket') { const outO = [i.striker, i.nonStriker].filter(Boolean).map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join(''); const nxt = availableBatters(i).map(n => `<option value="${esc(n)}">${esc(n)}${n === captain(i.batting) ? ' (C)' : ''}</option>`).join(''); return `<div class="overlay"><div class="modal"><div class="modal-head"><div class="modal-title">Wicket Panel</div><div class="modal-sub">Set dismissal details and bring in next batter.</div></div><div class="modal-body"><div class="grid two"><label class="field"><span class="label">Dismissed Batter</span><select id="outBatter">${outO}</select></label><label class="field"><span class="label">Dismissal Type</span><select id="dismissalType"><option>Bowled</option><option>Caught</option><option>Run Out</option><option>LBW</option><option>Stumped</option><option>Caught and Bowled</option><option>Hit Wicket</option></select></label></div><label class="field"><span class="label">Fielder / Catcher / Run Out By</span><input id="fielderName" placeholder="Optional"></label><div class="grid two"><label class="field"><span class="label">Runs Completed</span><select id="wicketRuns"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></label><label class="field"><span class="label">Next Batter</span><select id="nextBatter"><option value="">${(i.wickets + 1) >= maxWickets(i) ? 'No batter needed' : 'Select next batter'}</option>${nxt}</select></label></div><div class="modal-actions"><button class="btn red full" onclick="App.confirmWicket()">Confirm Wicket</button><button class="btn secondary full" onclick="App.closeModal()">Cancel</button></div></div></div></div>` }
+      return ''
+    }
+    function rBreak() { const i1 = S.innings[0], i2 = S.innings[1]; return `<section class="break-hero screen"><div class="break-card"><div class="badge">Innings Break</div><div class="break-title">Target <em>${i2.target}</em></div><div class="mega-score">${esc(teamName(i1.batting))} ${i1.runs}/${i1.wickets}</div><p class="break-sub">${esc(teamName(i2.batting))} need ${i2.target} in ${S.setup.overs}.0 overs to win.</p><div class="hero-actions"><button class="btn primary" onclick="App.startChase()">Start Chase</button><button class="btn secondary" onclick="(S.tab='scorecard',S.phase='live',S.currentInnings=0,save(),render())">First Innings Card</button></div></div></section>` }
+    function rMatchEnd() { const i1 = S.innings[0], i2 = S.innings[1]; return `<section class="screen"><div class="break-hero"><div class="end-card"><div class="badge">Match Complete</div><div class="end-title"><em>Game</em> Over</div><p class="end-sub" style="font-size:20px;font-weight:900;color:var(--text)">${esc(resTxt())}</p><div class="target-row" style="justify-content:center"><div class="tgt">${esc(teamName(i1.batting))} <strong>${i1.runs}/${i1.wickets}</strong> (${oversText(i1.legalBalls)})</div><div class="tgt">${esc(teamName(i2.batting))} <strong>${i2.runs}/${i2.wickets}</strong> (${oversText(i2.legalBalls)})</div></div><div class="hero-actions"><button class="btn primary" onclick="S.currentInnings=1;S.phase='live';S.tab='scorecard';save();render()">Final Scoreboard</button><button class="btn green" onclick="App.restartSame()">Restart Same Teams</button><button class="btn secondary" onclick="App.newMatch()">New Teams</button></div></div></div>${rFinal()}</section>` }
+    function resTxt() { const i1 = S.innings[0], i2 = S.innings[1]; if (!i1 || !i2) return 'Match complete'; if (i2.runs >= i2.target) return `${teamName(i2.batting)} won by ${maxWickets(i2) - i2.wickets} wickets`; const d = i1.runs - i2.runs; if (d === 0) return 'Match tied'; return `${teamName(i1.batting)} won by ${d} run${d === 1 ? '' : 's'}` }
+    function rSCFor(idx) { const old = S.currentInnings; S.currentInnings = idx; const out = rScorecard(); S.currentInnings = old; return out }
+    function rFinal() { return `<div class="grid two">${rSCFor(0)}${rSCFor(1)}</div>` }
+    function render() {
+      const app = $('app'); setNotice(S.notice || 'Ready'); let html = '';
+      if (S.phase === 'welcome') html = rWelcome();
+      else if (S.phase === 'setup') html = rSetup();
+      else if (S.phase === 'toss') html = rToss();
+      else if (S.phase === 'openers') html = rOpeners();
+      else if (S.phase === 'live') html = rLive();
+      else if (S.phase === 'inningsBreak') html = rBreak();
+      else if (S.phase === 'matchEnd') html = rMatchEnd();
+      app.innerHTML = html + rModal(); save()
+    }
     render();
   </script>
 </body>
