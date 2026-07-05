@@ -53,10 +53,17 @@ export default function LiveScore() {
     return false;
   }, [computed, totalLegalBalls, maxWickets, isSecondInnings, rawInnings]);
 
+  const lastLogEntry = rawInnings?.log?.[rawInnings.log.length - 1];
+  const needsNewBowler = !!computed && computed.legalBalls > 0 && !computed.currentOver && !inningsComplete;
+  const bowlerSetForNextOver = lastLogEntry?.type === 'bowler_change';
+  // Only block scoring if an over ended and a new bowler has not been confirmed yet.
+  const betweenOvers = needsNewBowler && !bowlerSetForNextOver;
+
   // Auto-prompt for a new bowler between overs
-  const betweenOvers = !!computed && computed.legalBalls > 0 && !computed.currentOver && !inningsComplete;
   useEffect(() => {
-    setBowlerDialogOpen(betweenOvers);
+    if (betweenOvers) {
+      setBowlerDialogOpen(true);
+    }
   }, [betweenOvers]);
 
   if (!match) {
@@ -78,6 +85,10 @@ export default function LiveScore() {
   const handleScore = (payload) => {
     if (!computed?.striker) {
       snackbar.show('Set the striker first', { tone: 'error' });
+      return;
+    }
+    if (!computed?.currentBowler) {
+      snackbar.show('Select a bowler before scoring this over', { tone: 'error' });
       return;
     }
     actions.addBall({ ...payload, bowler: computed.currentBowler, striker: computed.striker, nonStriker: computed.nonStriker });
@@ -174,6 +185,13 @@ export default function LiveScore() {
             totalLegalBalls={totalLegalBalls}
           />
 
+          {betweenOvers && (
+            <Card className="border border-warn-500/30 bg-warn-500/5 p-4">
+              <p className="text-sm font-semibold text-ink dark:text-ink-dark">Over complete</p>
+              <p className="text-xs text-ink-soft dark:text-ink-darksoft">Set the next bowler to continue scoring.</p>
+            </Card>
+          )}
+
           {inningsComplete ? (
             <Card className="space-y-3 p-5 text-center">
               <p className="font-display font-bold text-ink dark:text-ink-dark">
@@ -189,10 +207,10 @@ export default function LiveScore() {
           ) : (
             <>
               <BatsmenPanel computed={computed} onOpenBatsmanMenu={(name, role) => name && setBatsmanMenu({ name, role })} />
-              <BowlerPanel computed={computed} onChangeBowler={() => setBowlerDialogOpen(true)} />
+              <BowlerPanel computed={computed} ballsPerOver={ballsPerOver} onChangeBowler={() => setBowlerDialogOpen(true)} />
               <OverTimeline computed={computed} />
               <BallControls
-                canScore={!betweenOvers}
+                canScore={!betweenOvers && !!computed?.currentBowler}
                 canUndo={rawInnings.log.length > 0}
                 canRedo={rawInnings.redoStack.length > 0}
                 onScore={handleScore}

@@ -7,6 +7,15 @@ export default function Scoreboard({ match, computed, battingTeamName, bowlingTe
   const legalBalls = computed?.legalBalls ?? 0;
   const oversStr = computed?.oversDisplay ?? '0.0';
   const crr = runRate(runs, legalBalls, ballsPerOver);
+  const projectedTotal = legalBalls > 0 ? Math.round((runs / legalBalls) * totalLegalBalls) : null;
+  const boundaries = (computed?.battingList || []).reduce(
+    (acc, batter) => {
+      acc.fours += batter.fours || 0;
+      acc.sixes += batter.sixes || 0;
+      return acc;
+    },
+    { fours: 0, sixes: 0 }
+  );
 
   const ballsRemaining = Math.max(0, totalLegalBalls - legalBalls);
   const runsNeeded = isSecondInnings && target != null ? target - runs : null;
@@ -33,6 +42,20 @@ export default function Scoreboard({ match, computed, battingTeamName, bowlingTe
             </div>
           )}
         </div>
+      </div>
+
+      <div className="mt-4 grid grid-cols-2 gap-2 border-t border-ink/[0.06] pt-4 dark:border-white/[0.06] sm:grid-cols-4">
+        <Stat label="Total runs" value={runs} />
+        <Stat label="Run rate" value={crr} />
+        <Stat label="Extras" value={computed?.totalExtras ?? 0} />
+        <Stat label="4s/6s" value={`${boundaries.fours}/${boundaries.sixes}`} />
+      </div>
+
+      <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        <Stat label="Projected" value={projectedTotal ?? '-'} />
+        <Stat label="Balls faced" value={legalBalls} />
+        <Stat label="Bowling team" value={bowlingTeamName || '-'} />
+        <Stat label="Wkts lost" value={wkts} />
       </div>
 
       {isSecondInnings && target != null && (

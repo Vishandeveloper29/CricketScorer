@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import BottomSheet from '../ui/BottomSheet';
 import Button from '../ui/Button';
 import { SelectField } from '../ui/Field';
 
 export default function ChangeBowlerDialog({ open, onClose, bowlingSquad, lastBowler, dismissable = true, onConfirm }) {
   const [bowler, setBowler] = useState('');
+  const firstAvailableBowler = useMemo(() => bowlingSquad.find((p) => p !== lastBowler) || '', [bowlingSquad, lastBowler]);
+
+  useEffect(() => {
+    if (!open) return;
+    setBowler((prev) => {
+      if (prev && prev !== lastBowler) return prev;
+      return firstAvailableBowler;
+    });
+  }, [open, firstAvailableBowler, lastBowler]);
 
   return (
     <BottomSheet open={open} onClose={dismissable ? onClose : undefined} title="Select bowler">
@@ -26,7 +35,7 @@ export default function ChangeBowlerDialog({ open, onClose, bowlingSquad, lastBo
           disabled={!bowler}
           onClick={() => {
             onConfirm(bowler);
-            setBowler('');
+            setBowler(firstAvailableBowler);
           }}
         >
           Confirm bowler
