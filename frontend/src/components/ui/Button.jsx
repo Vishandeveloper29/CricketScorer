@@ -1,11 +1,11 @@
 const variants = {
-  primary: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-soft',
+  primary: 'bg-brand-500 text-white hover:bg-brand-600 active:bg-brand-700 shadow-soft focus-visible:shadow-glow',
   success: 'bg-success-500 text-white hover:bg-success-600 shadow-soft',
   wicket: 'bg-wicket-500 text-white hover:bg-wicket-600 shadow-soft',
   warn: 'bg-warn-500 text-white hover:bg-warn-600 shadow-soft',
-  secondary: 'bg-surface-muted text-ink hover:bg-ink/10 dark:bg-surface-darkmuted dark:text-ink-dark dark:hover:bg-white/10',
+  secondary: 'bg-surface-muted text-ink hover:bg-ink/12 dark:bg-surface-darkmuted dark:text-ink-dark dark:hover:bg-white/12',
   ghost: 'bg-transparent text-ink hover:bg-ink/5 dark:text-ink-dark dark:hover:bg-white/10',
-  outline: 'bg-transparent border border-ink/15 text-ink hover:bg-ink/5 dark:border-white/15 dark:text-ink-dark dark:hover:bg-white/10',
+  outline: 'bg-transparent border border-ink/20 text-ink hover:bg-ink/5 dark:border-white/20 dark:text-ink-dark dark:hover:bg-white/10',
 };
 
 const sizes = {

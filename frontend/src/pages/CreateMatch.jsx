@@ -55,10 +55,15 @@ export default function CreateMatch() {
   });
   const [playersA, setPlayersA] = useState([]);
   const [playersB, setPlayersB] = useState([]);
+  const [isFlipping, setIsFlipping] = useState(false);
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target?.value ?? e }));
 
   const runToss = () => {
+    if (isFlipping) return;
+    setIsFlipping(true);
+
+    window.setTimeout(() => {
     const result = Math.random() < 0.5 ? 'heads' : 'tails';
     const callerWon = form.tossCall === result;
     const winner = callerWon ? form.tossCaller : form.tossCaller === 'A' ? 'B' : 'A';
@@ -67,6 +72,8 @@ export default function CreateMatch() {
     snackbar.show(`${winner === 'A' ? form.teamAName || 'Team A' : form.teamBName || 'Team B'} won the toss (${result})`, {
       tone: 'success',
     });
+      setIsFlipping(false);
+    }, 900);
   };
 
   const handleSubmit = (e) => {
@@ -152,20 +159,39 @@ export default function CreateMatch() {
 
         <Card className="space-y-4 p-5">
           <h3 className="font-display font-bold text-ink dark:text-ink-dark">Toss</h3>
-          <div className="grid gap-4 sm:grid-cols-3">
-            <SelectField label="Toss called by" value={form.tossCaller} onChange={set('tossCaller')}>
-              <option value="A">{form.teamAName || 'Team A'}</option>
-              <option value="B">{form.teamBName || 'Team B'}</option>
-            </SelectField>
-            <SelectField label="Call" value={form.tossCall} onChange={set('tossCall')}>
-              <option value="heads">Heads</option>
-              <option value="tails">Tails</option>
-            </SelectField>
-            <div className="flex flex-col justify-end gap-2">
-              <Button type="button" variant="secondary" onClick={runToss}>
-                Flip coin
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl2 border border-ink/10 bg-surface-soft p-4 dark:border-white/10 dark:bg-surface-darkmuted">
+              <p className="text-sm font-semibold text-ink dark:text-ink-dark">Coin toss</p>
+              <div className="mt-3 flex items-center gap-4">
+                <div className={`coin ${isFlipping ? 'coin-flipping' : ''}`}>{form.tossResult || 'Flip'}</div>
+                <div className="space-y-1.5">
+                  <p className="text-xs text-ink-soft dark:text-ink-darksoft">
+                    Caller: <span className="font-semibold text-ink dark:text-ink-dark">{form.tossCaller === 'A' ? form.teamAName : form.teamBName}</span>
+                  </p>
+                  <p className="text-xs text-ink-soft dark:text-ink-darksoft">
+                    Call: <span className="font-semibold uppercase text-ink dark:text-ink-dark">{form.tossCall}</span>
+                  </p>
+                  {form.tossResult && (
+                    <p className="text-xs font-semibold text-brand-600 dark:text-brand-400">
+                      Landed: {form.tossResult.toUpperCase()}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <Button type="button" className="mt-4 w-full" variant="secondary" disabled={isFlipping} onClick={runToss}>
+                {isFlipping ? 'Flipping...' : 'Flip coin'}
               </Button>
-              {form.tossResult && <p className="text-xs text-ink-faint">Result: {form.tossResult}</p>}
+            </div>
+
+            <div className="space-y-4">
+              <SelectField label="Toss called by" value={form.tossCaller} onChange={set('tossCaller')}>
+                <option value="A">{form.teamAName || 'Team A'}</option>
+                <option value="B">{form.teamBName || 'Team B'}</option>
+              </SelectField>
+              <SelectField label="Call" value={form.tossCall} onChange={set('tossCall')}>
+                <option value="heads">Heads</option>
+                <option value="tails">Tails</option>
+              </SelectField>
             </div>
           </div>
 

@@ -21,16 +21,6 @@ html, body, #root {
 body {
   @apply bg-surface-soft text-ink font-body antialiased dark:bg-surface-dark dark:text-ink-dark;
   font-feature-settings: 'ss01' on, 'cv01' on;
-  background-image:
-    radial-gradient(circle at 18% -10%, rgba(15, 134, 222, 0.18) 0%, rgba(15, 134, 222, 0) 42%),
-    radial-gradient(circle at 85% 0%, rgba(221, 141, 30, 0.12) 0%, rgba(221, 141, 30, 0) 34%);
-  background-attachment: fixed;
-}
-
-.dark body {
-  background-image:
-    radial-gradient(circle at 18% -12%, rgba(55, 160, 237, 0.22) 0%, rgba(55, 160, 237, 0) 44%),
-    radial-gradient(circle at 85% -4%, rgba(242, 170, 61, 0.14) 0%, rgba(242, 170, 61, 0) 34%);
 }
 
 .font-tabular {
@@ -79,7 +69,40 @@ button {
 
 /* focus ring accessible everywhere */
 :focus-visible {
-  outline: 2px solid #0f86de;
+  outline: 2px solid #1a73e8;
   outline-offset: 2px;
   border-radius: 6px;
+}
+
+.coin {
+  width: 88px;
+  height: 88px;
+  border-radius: 9999px;
+  border: 1px solid rgba(32, 33, 36, 0.16);
+  background: linear-gradient(160deg, #fff4cc 0%, #f9d76f 45%, #e9b949 100%);
+  color: #6b4e00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.coin-flipping {
+  animation: coin-flip 900ms cubic-bezier(0.32, 0.02, 0.21, 0.99);
+}
+
+@keyframes coin-flip {
+  0% {
+    transform: rotateY(0deg) translateY(0);
+  }
+  45% {
+    transform: rotateY(540deg) translateY(-12px);
+  }
+  100% {
+    transform: rotateY(1080deg) translateY(0);
+  }
 }

@@ -159,11 +159,11 @@ export default function LiveScore() {
   }, [match?.updatedAt]);
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-6 sm:px-6">
-      <div className="mb-4 flex items-center justify-between">
+    <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3 rounded-xl2 border border-ink/10 bg-white px-4 py-3 shadow-softer dark:border-white/10 dark:bg-surface-darksoft">
         <div>
-          <p className="font-display text-lg font-bold text-ink dark:text-ink-dark">{match.meta.name}</p>
-          <p className="text-xs text-ink-soft dark:text-ink-darksoft">
+          <p className="font-display text-xl font-bold text-ink dark:text-ink-dark">{match.meta.name}</p>
+          <p className="text-sm text-ink-soft dark:text-ink-darksoft">
             {match.teams.A.name} vs {match.teams.B.name} · {match.meta.overs} overs
           </p>
           {tossWinnerName && tossDecision && (
@@ -172,8 +172,8 @@ export default function LiveScore() {
             </p>
           )}
         </div>
-        <Link to={`/scorecard/${match.id}`}>
-          <Badge tone="brand">Scorecard →</Badge>
+        <Link to={`/scorecard/${match.id}`} className="pt-1">
+          <Badge tone="brand">Open scorecard</Badge>
         </Link>
       </div>
 
@@ -182,68 +182,71 @@ export default function LiveScore() {
           <EmptyState title="Ready to start" subtitle={`${battingTeam?.name} bat first. Choose your openers to begin.`} />
         </Card>
       ) : (
-        <div className="space-y-4">
-          <Scoreboard
-            match={match}
-            computed={computed}
-            battingTeamName={battingTeam?.name}
-            bowlingTeamName={bowlingTeam?.name}
-            isSecondInnings={isSecondInnings}
-            target={rawInnings?.target}
-            ballsPerOver={ballsPerOver}
-            totalLegalBalls={totalLegalBalls}
-          />
-
-          <MomentumTrend computed={computed} />
-
-          {isSecondInnings && rawInnings?.target != null && (
-            <ChaseWinWidget
+        <div className="grid gap-4 lg:grid-cols-5">
+          <div className="space-y-4 lg:col-span-3">
+            <Scoreboard
+              match={match}
               computed={computed}
-              target={rawInnings.target}
+              battingTeamName={battingTeam?.name}
+              bowlingTeamName={bowlingTeam?.name}
+              isSecondInnings={isSecondInnings}
+              target={rawInnings?.target}
               ballsPerOver={ballsPerOver}
               totalLegalBalls={totalLegalBalls}
-              maxWickets={maxWickets}
             />
-          )}
 
-          {betweenOvers && (
-            <Card className="border border-warn-500/30 bg-warn-500/5 p-4">
-              <p className="text-sm font-semibold text-ink dark:text-ink-dark">Over complete</p>
-              <p className="text-xs text-ink-soft dark:text-ink-darksoft">Set the next bowler to continue scoring.</p>
-            </Card>
-          )}
+            {betweenOvers && (
+              <Card className="border border-warn-500/40 bg-warn-50 p-4 dark:bg-warn-500/10">
+                <p className="text-sm font-semibold text-warn-600 dark:text-warn-50">Over complete</p>
+                <p className="text-xs text-ink-soft dark:text-ink-darksoft">Select the next bowler to unlock run controls.</p>
+              </Card>
+            )}
 
-          {inningsComplete ? (
-            <Card className="space-y-3 p-5 text-center">
-              <p className="font-display font-bold text-ink dark:text-ink-dark">
-                {isSecondInnings ? 'Innings complete — match finished' : 'Innings complete'}
-              </p>
-              <p className="text-sm text-ink-soft dark:text-ink-darksoft">
-                {computed.totalRuns}/{computed.totalWickets} off {computed.oversDisplay} overs
-              </p>
-              <Button size="lg" className="w-full" onClick={handleProceed}>
-                {isSecondInnings ? 'Finish match & view scorecard' : 'Start second innings'}
-              </Button>
-            </Card>
-          ) : (
-            <>
-              <BatsmenPanel computed={computed} onOpenBatsmanMenu={(name, role) => name && setBatsmanMenu({ name, role })} />
-              <BowlerPanel computed={computed} ballsPerOver={ballsPerOver} onChangeBowler={() => setBowlerDialogOpen(true)} />
-              <OverTimeline computed={computed} />
-              <BallControls
-                canScore={!betweenOvers && !!computed?.currentBowler}
-                canUndo={rawInnings.log.length > 0}
-                canRedo={rawInnings.redoStack.length > 0}
-                onScore={handleScore}
-                onWicket={() => setWicketOpen(true)}
-                onUndo={actions.undo}
-                onRedo={actions.redo}
+            {inningsComplete ? (
+              <Card className="space-y-3 p-5 text-center">
+                <p className="font-display font-bold text-ink dark:text-ink-dark">
+                  {isSecondInnings ? 'Innings complete — match finished' : 'Innings complete'}
+                </p>
+                <p className="text-sm text-ink-soft dark:text-ink-darksoft">
+                  {computed.totalRuns}/{computed.totalWickets} off {computed.oversDisplay} overs
+                </p>
+                <Button size="lg" className="w-full" onClick={handleProceed}>
+                  {isSecondInnings ? 'Finish match & view scorecard' : 'Start second innings'}
+                </Button>
+              </Card>
+            ) : (
+              <>
+                <BallControls
+                  canScore={!betweenOvers && !!computed?.currentBowler}
+                  canUndo={rawInnings.log.length > 0}
+                  canRedo={rawInnings.redoStack.length > 0}
+                  onScore={handleScore}
+                  onWicket={() => setWicketOpen(true)}
+                  onUndo={actions.undo}
+                  onRedo={actions.redo}
+                />
+                <Button variant="outline" className="w-full" onClick={() => setEndInningsConfirm(true)}>
+                  End innings now
+                </Button>
+              </>
+            )}
+          </div>
+
+          <div className="space-y-4 lg:col-span-2">
+            <BatsmenPanel computed={computed} onOpenBatsmanMenu={(name, role) => name && setBatsmanMenu({ name, role })} />
+            <BowlerPanel computed={computed} ballsPerOver={ballsPerOver} onChangeBowler={() => setBowlerDialogOpen(true)} />
+            <OverTimeline computed={computed} />
+            <MomentumTrend computed={computed} />
+            {isSecondInnings && rawInnings?.target != null && (
+              <ChaseWinWidget
+                computed={computed}
+                target={rawInnings.target}
+                ballsPerOver={ballsPerOver}
+                totalLegalBalls={totalLegalBalls}
+                maxWickets={maxWickets}
               />
-              <Button variant="outline" className="w-full" onClick={() => setEndInningsConfirm(true)}>
-                End innings now
-              </Button>
-            </>
-          )}
+            )}
+          </div>
         </div>
       )}
 

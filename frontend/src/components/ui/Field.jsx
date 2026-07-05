@@ -3,7 +3,7 @@ export function TextField({ label, className = '', ...props }) {
     <label className={`block ${className}`}>
       {label && <span className="mb-1.5 block text-sm font-semibold text-ink dark:text-ink-dark">{label}</span>}
       <input
-        className="h-12 w-full rounded-xl border border-ink/10 bg-surface-soft px-3.5 text-[15px] text-ink outline-none transition placeholder:text-ink-faint focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100 dark:border-white/10 dark:bg-surface-darkmuted dark:text-ink-dark dark:focus:bg-surface-darkmuted"
+        className="h-12 w-full rounded-xl border border-ink/15 bg-surface-soft px-3.5 text-[15px] text-ink outline-none transition placeholder:text-ink-faint focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-100 dark:border-white/15 dark:bg-surface-darkmuted dark:text-ink-dark dark:focus:border-brand-400 dark:focus:bg-surface-darkmuted"
         {...props}
       />
     </label>
@@ -15,7 +15,7 @@ export function SelectField({ label, className = '', children, ...props }) {
     <label className={`block ${className}`}>
       {label && <span className="mb-1.5 block text-sm font-semibold text-ink dark:text-ink-dark">{label}</span>}
       <select
-        className="h-12 w-full rounded-xl border border-ink/10 bg-surface-soft px-3.5 text-[15px] text-ink outline-none transition focus:border-brand-400 focus:bg-white focus:ring-2 focus:ring-brand-100 dark:border-white/10 dark:bg-surface-darkmuted dark:text-ink-dark"
+        className="h-12 w-full rounded-xl border border-ink/15 bg-surface-soft px-3.5 text-[15px] text-ink outline-none transition focus:border-brand-500 focus:bg-white focus:ring-2 focus:ring-brand-100 dark:border-white/15 dark:bg-surface-darkmuted dark:text-ink-dark dark:focus:border-brand-400"
         {...props}
       >
         {children}
@@ -28,7 +28,7 @@ export function Stepper({ label, value, onChange, min = 1, max = 999, step = 1 }
   return (
     <div>
       {label && <span className="mb-1.5 block text-sm font-semibold text-ink dark:text-ink-dark">{label}</span>}
-      <div className="flex h-12 items-center justify-between rounded-xl border border-ink/10 bg-surface-soft px-2 dark:border-white/10 dark:bg-surface-darkmuted">
+      <div className="flex h-12 items-center justify-between rounded-xl border border-ink/15 bg-surface-soft px-2 dark:border-white/15 dark:bg-surface-darkmuted">
         <button
           type="button"
           aria-label={`Decrease ${label}`}
@@ -53,7 +53,7 @@ export function Stepper({ label, value, onChange, min = 1, max = 999, step = 1 }
 
 export function SegmentedControl({ options, value, onChange, className = '' }) {
   return (
-    <div className={`inline-flex rounded-xl bg-surface-muted p-1 dark:bg-surface-darkmuted ${className}`} role="tablist">
+    <div className={`inline-flex rounded-xl bg-surface-muted p-1 ring-1 ring-ink/10 dark:bg-surface-darkmuted dark:ring-white/10 ${className}`} role="tablist">
       {options.map((opt) => (
         <button
           key={opt.value}

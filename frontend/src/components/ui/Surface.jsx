@@ -1,7 +1,7 @@
 export function Card({ className = '', children, ...props }) {
   return (
     <div
-      className={`rounded-xl2 border border-ink/[0.06] bg-white shadow-softer dark:border-white/[0.06] dark:bg-surface-darksoft ${className}`}
+      className={`rounded-xl2 border border-ink/[0.1] bg-white shadow-softer dark:border-white/[0.08] dark:bg-surface-darksoft ${className}`}
       {...props}
     >
       {children}
@@ -11,11 +11,11 @@ export function Card({ className = '', children, ...props }) {
 
 export function Badge({ tone = 'neutral', className = '', children }) {
   const tones = {
-    neutral: 'bg-surface-muted text-ink-soft dark:bg-surface-darkmuted dark:text-ink-darksoft',
-    brand: 'bg-brand-50 text-brand-600 dark:bg-brand-500/15 dark:text-brand-400',
-    success: 'bg-success-50 text-success-600 dark:bg-success-500/15 dark:text-success-400',
-    wicket: 'bg-wicket-50 text-wicket-600 dark:bg-wicket-500/15 dark:text-wicket-400',
-    warn: 'bg-warn-50 text-warn-600 dark:bg-warn-500/15 dark:text-warn-400',
+    neutral: 'bg-surface-muted text-ink dark:bg-surface-darkmuted dark:text-ink-dark',
+    brand: 'bg-brand-50 text-brand-700 ring-1 ring-brand-100 dark:bg-brand-500/20 dark:text-brand-100 dark:ring-brand-500/35',
+    success: 'bg-success-50 text-success-600 ring-1 ring-success-400/20 dark:bg-success-500/18 dark:text-success-50 dark:ring-success-500/35',
+    wicket: 'bg-wicket-50 text-wicket-600 ring-1 ring-wicket-400/20 dark:bg-wicket-500/18 dark:text-wicket-50 dark:ring-wicket-500/35',
+    warn: 'bg-warn-50 text-warn-600 ring-1 ring-warn-400/20 dark:bg-warn-500/18 dark:text-warn-50 dark:ring-warn-500/35',
   };
   return (
     <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${tones[tone]} ${className}`}>
