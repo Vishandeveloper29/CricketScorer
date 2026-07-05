@@ -5,6 +5,8 @@ import { Card, Badge, EmptyState } from '../components/ui/Surface';
 import Scoreboard from '../components/scoreboard/Scoreboard';
 import OverTimeline from '../components/scoreboard/OverTimeline';
 import BallControls from '../components/scoreboard/BallControls';
+import MomentumTrend from '../components/scoreboard/MomentumTrend';
+import ChaseWinWidget from '../components/scoreboard/ChaseWinWidget';
 import BatsmenPanel from '../components/batting/BatsmenPanel';
 import BowlerPanel from '../components/bowling/BowlerPanel';
 import StartInningsDialog from '../components/dialogs/StartInningsDialog';
@@ -32,6 +34,8 @@ export default function LiveScore() {
   const bowlingTeamKey = rawInnings?.bowlingTeam;
   const battingTeam = match?.teams?.[battingTeamKey];
   const bowlingTeam = match?.teams?.[bowlingTeamKey];
+  const tossWinnerName = match?.toss?.winner ? match?.teams?.[match.toss.winner]?.name : null;
+  const tossDecision = match?.toss?.decision;
   const ballsPerOver = match?.meta?.ballsPerOver || 6;
   const totalLegalBalls = (match?.meta?.overs || 20) * ballsPerOver;
   const isSecondInnings = inningsIndex === 1;
@@ -162,6 +166,11 @@ export default function LiveScore() {
           <p className="text-xs text-ink-soft dark:text-ink-darksoft">
             {match.teams.A.name} vs {match.teams.B.name} · {match.meta.overs} overs
           </p>
+          {tossWinnerName && tossDecision && (
+            <p className="mt-0.5 text-xs text-ink-faint">
+              Toss: {tossWinnerName} chose to {tossDecision === 'bat' ? 'bat' : 'bowl'} first
+            </p>
+          )}
         </div>
         <Link to={`/scorecard/${match.id}`}>
           <Badge tone="brand">Scorecard →</Badge>
@@ -184,6 +193,18 @@ export default function LiveScore() {
             ballsPerOver={ballsPerOver}
             totalLegalBalls={totalLegalBalls}
           />
+
+          <MomentumTrend computed={computed} />
+
+          {isSecondInnings && rawInnings?.target != null && (
+            <ChaseWinWidget
+              computed={computed}
+              target={rawInnings.target}
+              ballsPerOver={ballsPerOver}
+              totalLegalBalls={totalLegalBalls}
+              maxWickets={maxWickets}
+            />
+          )}
 
           {betweenOvers && (
             <Card className="border border-warn-500/30 bg-warn-500/5 p-4">

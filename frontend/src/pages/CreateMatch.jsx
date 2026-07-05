@@ -47,6 +47,9 @@ export default function CreateMatch() {
     playersCount: 11,
     teamAName: 'Team A',
     teamBName: 'Team B',
+    tossCaller: 'A',
+    tossCall: 'heads',
+    tossResult: '',
     tossWinner: 'A',
     tossDecision: 'bat',
   });
@@ -54,6 +57,17 @@ export default function CreateMatch() {
   const [playersB, setPlayersB] = useState([]);
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target?.value ?? e }));
+
+  const runToss = () => {
+    const result = Math.random() < 0.5 ? 'heads' : 'tails';
+    const callerWon = form.tossCall === result;
+    const winner = callerWon ? form.tossCaller : form.tossCaller === 'A' ? 'B' : 'A';
+
+    setForm((f) => ({ ...f, tossResult: result, tossWinner: winner }));
+    snackbar.show(`${winner === 'A' ? form.teamAName || 'Team A' : form.teamBName || 'Team B'} won the toss (${result})`, {
+      tone: 'success',
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -80,7 +94,13 @@ export default function CreateMatch() {
         A: { name: form.teamAName.trim(), players: fillNames(playersA, 'A-Player') },
         B: { name: form.teamBName.trim(), players: fillNames(playersB, 'B-Player') },
       },
-      toss: { winner: form.tossWinner, decision: form.tossDecision },
+      toss: {
+        winner: form.tossWinner,
+        decision: form.tossDecision,
+        caller: form.tossCaller,
+        call: form.tossCall,
+        result: form.tossResult || null,
+      },
     });
     snackbar.show('Match created — set your openers to begin', { tone: 'success' });
     navigate('/live');
@@ -132,6 +152,23 @@ export default function CreateMatch() {
 
         <Card className="space-y-4 p-5">
           <h3 className="font-display font-bold text-ink dark:text-ink-dark">Toss</h3>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <SelectField label="Toss called by" value={form.tossCaller} onChange={set('tossCaller')}>
+              <option value="A">{form.teamAName || 'Team A'}</option>
+              <option value="B">{form.teamBName || 'Team B'}</option>
+            </SelectField>
+            <SelectField label="Call" value={form.tossCall} onChange={set('tossCall')}>
+              <option value="heads">Heads</option>
+              <option value="tails">Tails</option>
+            </SelectField>
+            <div className="flex flex-col justify-end gap-2">
+              <Button type="button" variant="secondary" onClick={runToss}>
+                Flip coin
+              </Button>
+              {form.tossResult && <p className="text-xs text-ink-faint">Result: {form.tossResult}</p>}
+            </div>
+          </div>
+
           <div className="grid gap-4 sm:grid-cols-2">
             <SelectField label="Toss won by" value={form.tossWinner} onChange={set('tossWinner')}>
               <option value="A">{form.teamAName || 'Team A'}</option>

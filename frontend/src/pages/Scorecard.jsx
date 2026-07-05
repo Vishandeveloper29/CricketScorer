@@ -151,6 +151,20 @@ export default function Scorecard() {
         }
       />
 
+      {match.toss && (
+        <Card className="mb-4 p-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-ink-faint">Toss</p>
+          <p className="mt-1 text-sm font-semibold text-ink dark:text-ink-dark">
+            {match.teams[match.toss.winner]?.name} won and chose to {match.toss.decision === 'bat' ? 'bat' : 'bowl'} first
+          </p>
+          {match.toss.result && (
+            <p className="mt-1 text-xs text-ink-soft dark:text-ink-darksoft">
+              Call: {match.teams[match.toss.caller]?.name || 'Team'} said {match.toss.call}, coin landed {match.toss.result}
+            </p>
+          )}
+        </Card>
+      )}
+
       {match.result && (
         <Card className="mb-4 flex items-center gap-3 border-l-4 border-l-success-500 p-4">
           <Badge tone="success">Result</Badge>

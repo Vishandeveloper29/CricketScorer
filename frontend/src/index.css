@@ -21,6 +21,16 @@ html, body, #root {
 body {
   @apply bg-surface-soft text-ink font-body antialiased dark:bg-surface-dark dark:text-ink-dark;
   font-feature-settings: 'ss01' on, 'cv01' on;
+  background-image:
+    radial-gradient(circle at 18% -10%, rgba(15, 134, 222, 0.18) 0%, rgba(15, 134, 222, 0) 42%),
+    radial-gradient(circle at 85% 0%, rgba(221, 141, 30, 0.12) 0%, rgba(221, 141, 30, 0) 34%);
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(circle at 18% -12%, rgba(55, 160, 237, 0.22) 0%, rgba(55, 160, 237, 0) 44%),
+    radial-gradient(circle at 85% -4%, rgba(242, 170, 61, 0.14) 0%, rgba(242, 170, 61, 0) 34%);
 }
 
 .font-tabular {
@@ -32,11 +42,11 @@ body {
   height: 8px;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(18, 21, 26, 0.14);
+  background: rgba(15, 34, 55, 0.24);
   border-radius: 999px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(162, 183, 205, 0.3);
 }
 
 /* Safe-area padding for phones with home indicator */
@@ -69,7 +79,7 @@ button {
 
 /* focus ring accessible everywhere */
 :focus-visible {
-  outline: 2px solid #3567e8;
+  outline: 2px solid #0f86de;
   outline-offset: 2px;
   border-radius: 6px;
 }
